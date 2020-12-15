@@ -141,9 +141,6 @@
     <Resource Include="IMG\siguiente.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="siguiente.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="actualizar.png" />
   </ItemGroup>
   <ItemGroup>

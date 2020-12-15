@@ -16,7 +16,7 @@
         <StackPanel HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="180" Background="#FF151515">
             <WrapPanel Height="70" Margin="10,92,0,0">
                 <Rectangle x:Name="Rectangle_Barra" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
-                <Image Height="41" Width="26" Source="circulo-plus.png" Margin="5,0,0,0"/>
+                <Image Height="41" Width="26" Source="/IMG/circulo-plus.png" Margin="5,0,0,0"/>
                 <TextBlock x:Name="TextBlock_Add" TextWrapping="Wrap" Text="Agregar Música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp"/>
 
             </WrapPanel>
@@ -26,16 +26,17 @@
         <WrapPanel HorizontalAlignment="Left" Height="100" Margin="0,620,0,0" VerticalAlignment="Top" Width="1280" Background="#FF212121">
             <TextBlock x:Name="Name_Music" Text="-" Foreground="White" FontFamily="Verdana" Padding="58,31,0,0" Width="200"/>
             <StackPanel Height="100" Width="574" Margin="150,0,0,0">
-                <Image Height="23" Source="barajar.png" Margin="202,17,340,6"/>
+                <Image Height="23" Source="/IMG/barajar.png" Margin="202,17,340,6"/>
 
-                <Image Height="23" Source="anterior.png" Margin="245,-36,303,0"/>
+                <Image Height="23" Source="/IMG/anterior.png" Margin="245,-36,303,0"/>
+
 
                 <Button x:Name="Button_Reproductor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="43" Height="43" Style="{DynamicResource ButtonStyle1}" RenderTransformOrigin="0.5,0.5" Click="Button_Pause_Click" Margin="287,-39,0,0">
-                    <Image Source="boton-de-play.png"/>
+                    <Image Source="/IMG/boton-de-play.png"/>
                 </Button>
 
-                <Image Height="23" Margin="345,-44,199,0" Source="siguiente.png"/>
-                <Image Height="23" Source="actualizar.png" Margin="388,-42,162,0" />
+                <Image Height="23" Margin="345,-44,199,0" Source="/IMG/siguiente.png"/>
+                <Image Height="23" Source="/IMG/actualizar.png" Margin="388,-42,162,0" />
 
 
 
