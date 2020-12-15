@@ -9,8 +9,12 @@
     <Grid>
 
         <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="1280" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown">
-            <Button Content="_" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="1130,0,0,0"/>
-            <Button Content="X" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonX_Click" Style="{DynamicResource ButtonClose}" />
+            <Button Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="1130,0,0,0">
+                <Image Source="/IMG/minimizar.png" Height="26" Width="24"></Image>
+            </Button>
+            <Button Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonX_Click" Style="{DynamicResource ButtonClose}" >
+                <Image Source="/IMG/cerrar.png" Height="14" Width="11"></Image>
+            </Button>
         </WrapPanel>
 
         <StackPanel HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="180" Background="#FF151515">
@@ -48,7 +52,7 @@
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
         <TextBlock x:Name="Text_MaxLength" HorizontalAlignment="Left" Margin="822,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
         <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="#FF2F3136" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged">
-            
+
         </ListBox>
 
 

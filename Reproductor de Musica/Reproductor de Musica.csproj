@@ -138,5 +138,11 @@
   <ItemGroup>
     <Resource Include="IMG\actualizar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\cerrar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
