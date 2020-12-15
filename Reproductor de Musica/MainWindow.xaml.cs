@@ -111,6 +111,7 @@ namespace Reproductor_de_Musica
                     mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 
                     ListBox.Items.Add(fd.SafeFileName);
+                    Console.WriteLine("2");
                     URLS.Add(fd.FileName);
                 }
             }

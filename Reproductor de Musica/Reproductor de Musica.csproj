@@ -123,35 +123,17 @@
     <Resource Include="IMG\circulo-plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="circulo-plus.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="IMG\barajar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="barajar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\anterior.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="anterior.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="IMG\siguiente.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="actualizar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\boton-de-play.png" />
     <Resource Include="IMG\pausa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="boton-de-play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="pausa.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\actualizar.png" />
