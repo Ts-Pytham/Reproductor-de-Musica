@@ -20,3 +20,4 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\ProgressBar.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\Slider.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\Slider2.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\ListBox.baml

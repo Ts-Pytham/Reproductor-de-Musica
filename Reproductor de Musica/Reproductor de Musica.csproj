@@ -76,6 +76,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Minimize.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,26 +127,47 @@
     <Resource Include="IMG\circulo-plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="IMG\barajar.png" />
+    <Resource Include="IMG\Aleatorio\barajar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="IMG\anterior.png" />
+    <Resource Include="IMG\Models_Anterior\anterior.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="IMG\siguiente.png" />
+    <Resource Include="IMG\Models_Siguiente\siguiente.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\boton-de-play.png" />
     <Resource Include="IMG\pausa.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="IMG\actualizar.png" />
+    <Resource Include="IMG\Repetir\actualizar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\minimizar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Models_Siguiente\hover_siguiente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Models_Anterior\hover_anterior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Models_Anterior\enter_anterior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Models_Siguiente\enter_siguiente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Repetir\hover_actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Repetir\click_actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\playlist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
