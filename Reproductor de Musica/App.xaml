@@ -1,0 +1,18 @@
+﻿<Application x:Class="Reproductor_de_Musica.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Reproductor_de_Musica"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Styles\Minimize.xaml"/>
+                <ResourceDictionary Source="Styles\ButtonClose.xaml"/>
+                <ResourceDictionary Source="Styles\ProgressBar.xaml"/>
+                <ResourceDictionary Source="Styles\Slider.xaml"/>
+                <ResourceDictionary Source="Styles\Slider2.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
