@@ -9,8 +9,6 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica_MarkupCompile.lref
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\MainWindow.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.g.resources
-C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor_de_Musica.Properties.Resources.resources
-C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.GenerateResource.cache
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.CoreCompileInputs.cache
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.exe
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.pdb
@@ -21,3 +19,8 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\Slider.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\Slider2.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Styles\ListBox.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.TrustInfo.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.exe.manifest
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Reproductor de Musica.exe.manifest
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Reproductor de Musica.application
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.application
