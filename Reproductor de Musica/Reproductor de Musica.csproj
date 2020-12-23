@@ -169,7 +169,9 @@
   <ItemGroup>
     <Resource Include="IMG\playlist.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\Favorite\clic_favorite.png" />
     <Resource Include="IMG\Favorite\favorite.png" />
