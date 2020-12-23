@@ -169,5 +169,10 @@
   <ItemGroup>
     <Resource Include="IMG\playlist.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="IMG\Favorite\clic_favorite.png" />
+    <Resource Include="IMG\Favorite\favorite.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WinForms = System.Windows.Forms;
+using IO = System.IO;
+
 
 namespace Reproductor_de_Musica
 {
@@ -73,6 +75,7 @@ namespace Reproductor_de_Musica
         /* Para hacer el efecto de darle click al textblock y que sea tipo button*/
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+          
             TextBlock textBlock = (TextBlock)sender;
 
             textBlock.Foreground = Brushes.Gray; 
@@ -120,7 +123,8 @@ namespace Reproductor_de_Musica
 
                         URLS.Add(fd.FileName);
 
-                        ListBox.SelectedIndex = 0;
+                        ListBox.SelectedIndex = ListBox.Items.Count - 1;
+
                     }
                 }
             }
@@ -162,15 +166,22 @@ namespace Reproductor_de_Musica
 
                         mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 
-                        foreach(var dato in fd.SafeFileNames)
+                        bool IsEmpty = true;
+                        if (ListBox.Items.Count != 0)
+                            IsEmpty = false;
+                        
+                        int len = fd.FileNames.Length;
+                        for(int i = 0; i != len; ++i)
                         {
-                            
-                            ListBox.Items.Add(dato);
-                        }  
-                        foreach(var dato in fd.FileNames)
-                        {
-                            URLS.Add(dato);
+                            ListBox.Items.Add(fd.SafeFileNames[i]);
+                            URLS.Add(fd.FileNames[i]);
                         }
+
+                        // Comprueba si en la lista hay música, si no hay pone el index en 0.
+                        if (IsEmpty)
+                            ListBox.SelectedIndex = 0;
+                        else
+                            ListBox.SelectedIndex = ListBox.Items.Count - 1;
                     }
                 }
             }
@@ -178,6 +189,7 @@ namespace Reproductor_de_Musica
             
         }
 
+        
         private void MediaPlayer_MediaOpened(object sender, EventArgs e)
         {
             mediaPlayer.Play();
@@ -212,20 +224,35 @@ namespace Reproductor_de_Musica
             mediaPlayer.Volume = e.NewValue;
         }
 
+        /* Eventos del ListBox         */
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           
             mediaPlayer.Open(new Uri(URLS[ListBox.SelectedIndex]));
             Name_Music.Text = ListBox.SelectedItem.ToString();
             IsPaused = true;
             Button_Pause_Click(sender, e);
             mediaPlayer.Play();
+            
         }
-
+        //=======================================================================
 
         void Timer_Tick(object sender, EventArgs e)
         {
             Slider_Carga.Value = mediaPlayer.Position.TotalSeconds;
             Text_MinLength.Text = mediaPlayer.Position.ToString(@"mm\:ss");
+            if(Text_MinLength.Text == Text_MaxLength.Text)
+            {
+                if(ListBox.Items.Count != 1 && ListBox.SelectedIndex != ListBox.Items.Count - 1)
+                {
+                    mediaPlayer.Open(new Uri(URLS[ListBox.SelectedIndex + 1]));
+                    Name_Music.Text = ListBox.Items[ListBox.SelectedIndex + 1].ToString();
+                    ListBox.SelectedIndex += 1;
+                    mediaPlayer.Play();
+                }
+          
+            }
+
 
         }
 
@@ -331,6 +358,46 @@ namespace Reproductor_de_Musica
                 img.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Models_Anterior/anterior.png"));
         }
 
+
+
+        /* Esta función sirve para arrastrar archivos de música*/
+
+        private void ListBox_Drop(object sender, DragEventArgs e)
+        {
+            /*Obtiene la url del archivo*/
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            MessageBox.Show($"la posición 0 es: {files[0]}");
+            foreach (var file in files)
+            {
+                if (IO.Path.GetExtension(file) != ".mp3" && IO.Path.GetExtension(file) != ".WebM")
+                {
+                    MessageBox.Show("Formato de archivo inválido", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+            }
+            Name_Music.Text = IO.Path.GetFileName(files[0]);
+
+            int len = files.Length;
+            for(int i = 0; i != len; ++i)
+            {
+                ListBox.Items.Add(IO.Path.GetFileName(files[i]));
+                URLS.Add(files[i]);
+            }
+
+            ListBox.SelectedIndex = 0;
+
+        }
+        /*               Eventos para guardar las canciones favoritas           */
+
         
+        private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            if(ListBox.Items.Count != 0)
+                IMG_Favorite.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Favorite/clic_favorite.png"));
+        }
+
+       
     }
 }

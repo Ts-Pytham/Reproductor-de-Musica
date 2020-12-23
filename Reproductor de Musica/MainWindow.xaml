@@ -24,8 +24,8 @@
                 <TextBlock x:Name="TextBlock_Add" TextWrapping="Wrap" Text="Agregar Música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp"/>
 
             </WrapPanel>
-            
- 
+
+
 
             <WrapPanel Height="70" Margin="10,-4,0,0">
                 <Rectangle x:Name="Rectangle_Barra1" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
@@ -60,7 +60,7 @@
         <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider1}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp"/>
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
         <TextBlock x:Name="Text_MaxLength" HorizontalAlignment="Left" Margin="822,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
-        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="#FF2F3136" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" >
+        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="#FF2F3136" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" AllowDrop="True" Drop="ListBox_Drop" >
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
@@ -68,7 +68,7 @@
 
                             <Setter Property="Foreground" Value="#FFFE4164" />
                         </Trigger>
-                        
+
                         <Trigger Property="IsSelected" Value="False" >
                             <Setter Property="Background" Value="#FF2F3136" />
                             <Setter Property="Foreground" Value="White" />
@@ -77,8 +77,9 @@
 
                 </Style>
             </ListBox.ItemContainerStyle>
-        </ListBox>
 
+        </ListBox>
+        <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
 
 
 
