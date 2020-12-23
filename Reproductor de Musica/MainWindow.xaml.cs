@@ -367,7 +367,7 @@ namespace Reproductor_de_Musica
             /*Obtiene la url del archivo*/
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-            MessageBox.Show($"la posición 0 es: {files[0]}");
+            //MessageBox.Show($"la posición 0 es: {files[0]}");
             foreach (var file in files)
             {
                 if (IO.Path.GetExtension(file) != ".mp3" && IO.Path.GetExtension(file) != ".WebM")
