@@ -21,7 +21,14 @@
             <WrapPanel Height="70" Margin="10,92,0,0">
                 <Rectangle x:Name="Rectangle_Barra" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
                 <Image Height="41" Width="26" Source="/IMG/circulo-plus.png" Margin="5,0,0,0"/>
-                <TextBlock x:Name="TextBlock_Add" TextWrapping="Wrap" Text="Agregar Música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp"/>
+                <TextBlock x:Name="TextBlock_Add" TextWrapping="Wrap" Text="Agregar Música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana"  MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold">
+                    <TextBlock.OpacityMask>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.OpacityMask>
+                </TextBlock>
 
             </WrapPanel>
 
@@ -30,7 +37,7 @@
             <WrapPanel Height="70" Margin="10,-4,0,0">
                 <Rectangle x:Name="Rectangle_Barra1" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
                 <Image Height="41" Width="26" Source="/IMG/playlist.png" Margin="5,0,0,0"/>
-                <TextBlock x:Name="TextBlock_PlayList" TextWrapping="Wrap" Text="Agregar PlayList" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp"/>
+                <TextBlock x:Name="TextBlock_PlayList" TextWrapping="Wrap" Text="Agregar PlayList" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold"/>
 
             </WrapPanel>
 

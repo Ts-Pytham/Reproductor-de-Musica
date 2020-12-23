@@ -119,7 +119,7 @@ namespace Reproductor_de_Musica
 
                         mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 
-                        ListBox.Items.Add(fd.SafeFileName);
+                        ListBox.Items.Add($"{ListBox.Items.Count + 1} - {fd.SafeFileName}");
 
                         URLS.Add(fd.FileName);
 
@@ -173,7 +173,7 @@ namespace Reproductor_de_Musica
                         int len = fd.FileNames.Length;
                         for(int i = 0; i != len; ++i)
                         {
-                            ListBox.Items.Add(fd.SafeFileNames[i]);
+                            ListBox.Items.Add($"{ListBox.Items.Count + 1} - {fd.SafeFileNames[i]}");
                             URLS.Add(fd.FileNames[i]);
                         }
 
@@ -382,7 +382,7 @@ namespace Reproductor_de_Musica
             int len = files.Length;
             for(int i = 0; i != len; ++i)
             {
-                ListBox.Items.Add(IO.Path.GetFileName(files[i]));
+                ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileName(files[i])}");
                 URLS.Add(files[i]);
             }
 
