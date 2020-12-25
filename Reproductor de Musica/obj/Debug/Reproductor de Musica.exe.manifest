@@ -55,14 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reproductor de Musica.exe" size="165376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reproductor de Musica.exe" size="200192">
       <assemblyIdentity name="Reproductor de Musica" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GPgLPO7TzrmNte5mauySaGqHakR43piZWy1O1aiXagQ=</dsig:DigestValue>
+        <dsig:DigestValue>UYQonBQFug0A7vZ/Tpy8GG1Ug/MU9y9bWi3JmiVVKwI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="taglib-sharp.dll" size="491008">
+      <assemblyIdentity name="taglib-sharp" version="2.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>55yhmDiwn07OQ8oXi/dn20/GJSaL8oFhR7vFeqbOWqw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

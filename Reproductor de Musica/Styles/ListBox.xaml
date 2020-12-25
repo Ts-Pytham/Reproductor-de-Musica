@@ -2,6 +2,36 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Reproductor_de_Musica.Styles">
 
-    
-   
+    <Style TargetType="ListBoxItem" x:Key="Modo_Claro">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True" >
+
+                <Setter Property="Foreground" Value="#FFFE4164" />
+            </Trigger>
+
+            <Trigger Property="IsSelected" Value="False" >
+
+                <Setter Property="Foreground" Value="Black" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <Style TargetType="ListBoxItem" x:Key="Modo_Oscuro">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True" >
+
+                <Setter Property="Foreground" Value="#FFFE4164" />
+            </Trigger>
+
+            <Trigger Property="IsSelected" Value="False" >
+
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+
 </ResourceDictionary>

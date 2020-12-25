@@ -22,19 +22,39 @@ namespace Reproductor_de_Musica
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+    [Serializable]
     public partial class MainWindow : Window
     {
+
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         private bool IsPaused = true;
         private readonly List<string> URLS = new List<string>();
+        public List<string> LTheme = new List<string>(); 
         private TimeSpan position;
-        private DispatcherTimer timer = new DispatcherTimer();
+        private TimeSpan suma = new TimeSpan();
+        private WinAjuste win;
+        /* Si theme es igual a 0 quiere decir, que el tema será de color negro,
+         * Si es igual a 1 es porque el tema es claro, 2 tema Opera GX y si
+         * es igual a 3 el tema es personalizado.
+         */
+        public int theme = 0;
 
+      
+
+
+        
+
+        
         public MainWindow()
         {
-            //mediaPlayer = new MediaPlayer();
+            
             InitializeComponent();
+            if (IO.File.Exists("theme.pytham"))
+            {
+                GetTheme();
+            }
         }
+        
         
         private void WrapPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -43,6 +63,8 @@ namespace Reproductor_de_Musica
 
         private void ButtonX_Click(object sender, RoutedEventArgs e)
         {
+            if(win != null)
+                win.Close();
             this.Close();
         }
 
@@ -75,15 +97,26 @@ namespace Reproductor_de_Musica
         /* Para hacer el efecto de darle click al textblock y que sea tipo button*/
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-          
-            TextBlock textBlock = (TextBlock)sender;
+            /* Creo el try catch para comprobar si lo que ingresa es un botón o un imagen
+             * Sirve para que tanto el botón como el textBlock puedan acceder a sus bloque de código.
+             */
+            TextBlock textBlock = new TextBlock();
+            Image image = new Image();
+            try
+            {
+                 textBlock = (TextBlock)sender;
+            }
+            catch (System.InvalidCastException)
+            {
+                image = (Image)sender;
+            }
 
             textBlock.Foreground = Brushes.Gray; 
             /* El if comprueba cual textblock fue el que se presionó, 
              * solo sirve para ocultar/mostrar el rectángulo y llama a la función para 
              * agregar la música, es decir, si entra en el else es porque el usuario ingresa 
              * una playlist. */
-            if (textBlock.Name == "TextBlock_Add") 
+            if (textBlock.Name == "TextBlock_Add" || image.Name == "Image_Add") 
             {
                 Rectangle_Barra.Visibility = Visibility.Visible;
                 Rectangle_Barra1.Visibility = Visibility.Hidden;
@@ -97,7 +130,7 @@ namespace Reproductor_de_Musica
                     if (fd.ShowDialog() == WinForms.DialogResult.OK)
                     {
 
-                        Name_Music.Text = fd.SafeFileName;
+                        Name_Music.Text = IO.Path.GetFileNameWithoutExtension(fd.SafeFileName);
 
                         mediaPlayer.Open(new Uri(fd.FileName));
 
@@ -119,12 +152,14 @@ namespace Reproductor_de_Musica
 
                         mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 
-                        ListBox.Items.Add($"{ListBox.Items.Count + 1} - {fd.SafeFileName}");
+                        TagLib.File tagFile = TagLib.File.Create(fd.FileName);
+                        ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(fd.SafeFileName)}");
 
                         URLS.Add(fd.FileName);
-
+                        //TextBlock_Author_Name.Text = TagLib.File.Create(fd.FileName).Tag.FirstAlbumArtist;
                         ListBox.SelectedIndex = ListBox.Items.Count - 1;
 
+                        suma += tagFile.Properties.Duration;
                     }
                 }
             }
@@ -144,9 +179,9 @@ namespace Reproductor_de_Musica
                     if (fd.ShowDialog() == WinForms.DialogResult.OK)
                     {
 
-                        Name_Music.Text = fd.SafeFileName;
+                        Name_Music.Text = IO.Path.GetFileNameWithoutExtension(fd.SafeFileName);
 
-                        mediaPlayer.Open(new Uri(fd.FileName));
+                        
 
 
                         Image img = new Image { Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/pausa.png")) };
@@ -171,11 +206,21 @@ namespace Reproductor_de_Musica
                             IsEmpty = false;
                         
                         int len = fd.FileNames.Length;
+                        
                         for(int i = 0; i != len; ++i)
                         {
-                            ListBox.Items.Add($"{ListBox.Items.Count + 1} - {fd.SafeFileNames[i]}");
+                            TagLib.File tagFile = TagLib.File.Create(fd.FileNames[i]);
+                            ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(fd.SafeFileNames[i])}");
+                            //ListBox.Items.Add($"{ListBox.Items.Count + 1} - {tagFile.Properties.N}");
                             URLS.Add(fd.FileNames[i]);
+                            
+                            suma += tagFile.Properties.Duration;
                         }
+
+                        
+                        mediaPlayer.Open(new Uri(fd.FileName));
+                       
+                        
 
                         // Comprueba si en la lista hay música, si no hay pone el index en 0.
                         if (IsEmpty)
@@ -192,11 +237,14 @@ namespace Reproductor_de_Musica
         
         private void MediaPlayer_MediaOpened(object sender, EventArgs e)
         {
+            
             mediaPlayer.Play();
+
+            TextBlock_Info_PlayList.Text = $"Duración total: {suma:dd\\:hh\\:mm\\:ss}";
+            TextBlock_Author_Name.Text = TagLib.File.Create(URLS[ListBox.SelectedIndex]).Tag.FirstAlbumArtist;
             position = mediaPlayer.NaturalDuration.TimeSpan;
             Slider_Carga.Minimum = 0;
             Slider_Carga.Maximum = position.TotalSeconds;
-
             Text_MinLength.Text = mediaPlayer.Position.ToString(@"mm\:ss");
             Text_MaxLength.Text = mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss");
         }
@@ -204,8 +252,10 @@ namespace Reproductor_de_Musica
         private void TextBlock_Add_MouseLeave(object sender, MouseEventArgs e)
         {
             TextBlock textBlock = (TextBlock)sender;
-
-            textBlock.Foreground = new SolidColorBrush(Color.FromRgb(207, 207, 207));
+            if(theme == 0 || theme == 2)
+                textBlock.Foreground = new SolidColorBrush(Color.FromRgb(207, 207, 207));
+            else
+                textBlock.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
         }
 
         private void TextBlock_Add_MouseEnter(object sender, MouseEventArgs e)
@@ -377,16 +427,30 @@ namespace Reproductor_de_Musica
                 }
 
             }
-            Name_Music.Text = IO.Path.GetFileName(files[0]);
+
+            DispatcherTimer timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 
             int len = files.Length;
             for(int i = 0; i != len; ++i)
             {
-                ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileName(files[i])}");
+                TagLib.File tagLib = TagLib.File.Create(files[i]);
+
+                ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(files[i])}");
                 URLS.Add(files[i]);
+                suma += tagLib.Properties.Duration;
             }
 
-            ListBox.SelectedIndex = 0;
+            
+
+
+            TextBlock_Info_PlayList.Text = $"Duración total: {suma:dd\\:hh\\:mm\\:ss}";
 
         }
         /*               Eventos para guardar las canciones favoritas           */
@@ -398,6 +462,66 @@ namespace Reproductor_de_Musica
                 IMG_Favorite.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Favorite/clic_favorite.png"));
         }
 
-       
+
+
+
+
+
+        /*            Eventos para el botón de ajustes           */
+
+        private void TextBox_Ajuste_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            win = new WinAjuste(this);
+            
+            win.Show();
+        }
+
+
+
+        /*          Función para obtener los elementos    */
+
+        public void GetTheme()
+        {
+            LTheme = Utilidades.Utilities.GetFile("theme");
+
+            WrapPanel_Principal.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[0]);
+
+            Button_X.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[0]);
+            Button_X.BorderBrush = (Brush)new BrushConverter().ConvertFrom(LTheme[0]);
+            Button_Minus.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[0]);
+            Button_Minus.BorderBrush = (Brush)new BrushConverter().ConvertFrom(LTheme[0]);
+            this.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[1]);
+
+            ListBox.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[1]);
+            ListBox.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[4]);
+            ResourceDictionary resourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri(@"pack://application:,,,/Styles/ListBox.xaml")
+            };
+
+            theme = Convert.ToInt32(LTheme[6]);
+
+            if (theme == 0 || theme == 2)
+                ListBox.ItemContainerStyle = (Style)resourceDictionary["Modo_Oscuro"];
+            else
+                ListBox.ItemContainerStyle = (Style)resourceDictionary["Modo_Claro"];
+
+            StackPanel_Principal.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[2]);
+            WrapPanel_Secundaria.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[3]);
+
+            TextBlock_Add.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[5]);
+            TextBlock_Favorite.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[5]);
+            TextBlock_PlayList.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[5]);
+            TextBlock_Author_Name.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[5]);
+            TextBlock_Ajuste.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[5]);
+            Name_Music.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[5]);
+            Text_MinLength.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[4]);
+            Text_MaxLength.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[4]);
+            TextBlock_Info_PlayList.Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[4]);
+
+
+            
+        }
     }
 }
