@@ -22,7 +22,7 @@
                 <Rectangle x:Name="Rectangle_Barra" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
                 <Image x:Name="Image_Add"  Height="41" Width="26" Source="/IMG/circulo-plus.png" Margin="5,0,0,0" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
                 <TextBlock x:Name="TextBlock_Add" TextWrapping="Wrap" Text="Agregar Música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana"  MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold">
-                    
+
                 </TextBlock>
 
             </WrapPanel>
@@ -78,7 +78,7 @@
         <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider1}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp"/>
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
         <TextBlock x:Name="Text_MaxLength" HorizontalAlignment="Left" Margin="822,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
-        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="#FF2F3136" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" AllowDrop="True" Drop="ListBox_Drop" >
+        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="#FF2F3136" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" AllowDrop="True" Drop="ListBox_Drop" MouseLeftButtonDown="ListBox_MouseLeftButtonDown"  PreviewMouseDoubleClick="ListBox_PreviewMouseDoubleClick" >
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
@@ -88,7 +88,7 @@
                         </Trigger>
 
                         <Trigger Property="IsSelected" Value="False" >
-        
+
                             <Setter Property="Foreground" Value="White" />
                         </Trigger>
                     </Style.Triggers>
@@ -99,7 +99,8 @@
         </ListBox>
         <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
         <TextBlock x:Name="TextBlock_Info_PlayList" HorizontalAlignment="Left" Margin="240,588,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana"/>
-        
+        <Button Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
+
 
 
 

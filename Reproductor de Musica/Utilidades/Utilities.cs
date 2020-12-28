@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace Reproductor_de_Musica.Utilidades
 {
     [Serializable]
-    public static class Utilities
+    public static class Utilities<T>
     {
-        public static void CreateFile(string nombre, List<string> data)
+        public static void CreateFile(string nombre, T data)
         {
             FileStream stream = new FileStream($"{nombre}.pytham", FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
@@ -19,19 +19,19 @@ namespace Reproductor_de_Musica.Utilidades
 
             stream.Close();
         }
-       public static List<string> GetFile(string nombre)
+       public static T GetFile(string nombre)
        {
             
             FileStream stream = new FileStream($"{nombre}.pytham", FileMode.Open);
             BinaryFormatter formatter = new BinaryFormatter();
-            List<string> ls = (List<string>)formatter.Deserialize(stream);
+            T ls = (T)formatter.Deserialize(stream);
 
             stream.Close();
 
             return ls;
        }
 
-       public static void SaveData(string nombre, List<string> list)
+       public static void SaveData(string nombre, T list)
        {
             if (File.Exists($"{nombre}.pytham"))
                 File.Delete($"{nombre}.pytham");

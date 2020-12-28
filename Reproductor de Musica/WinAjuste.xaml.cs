@@ -105,7 +105,7 @@ namespace Reproductor_de_Musica
                     "#FF000000",
                     "1"
                 };
-                Utilidades.Utilities.SaveData("theme", list);
+                Utilidades.Utilities<List<string>>.SaveData("theme", list);
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_Oscuro" && (bool)!RB.IsChecked)
@@ -122,7 +122,7 @@ namespace Reproductor_de_Musica
                     "#FFCFCFCF",
                     "0"
                 };
-                Utilidades.Utilities.SaveData("theme", list);
+                Utilidades.Utilities<List<string>>.SaveData("theme", list);
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_Opera" && (bool)!RB.IsChecked)
@@ -139,7 +139,7 @@ namespace Reproductor_de_Musica
                     "#FFCFCFCF",
                     "2"
                 };
-                Utilidades.Utilities.SaveData("theme", list);
+                Utilidades.Utilities<List<string>>.SaveData("theme", list);
                 RB.IsChecked = true;
             }
         }

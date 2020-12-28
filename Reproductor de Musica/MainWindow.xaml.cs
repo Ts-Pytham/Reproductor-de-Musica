@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using WinForms = System.Windows.Forms;
 using IO = System.IO;
-
+using Reproductor_de_Musica.Utilidades;
 
 namespace Reproductor_de_Musica
 {
@@ -29,7 +29,8 @@ namespace Reproductor_de_Musica
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         private bool IsPaused = true;
         private readonly List<string> URLS = new List<string>();
-        public List<string> LTheme = new List<string>(); 
+        public List<string> LTheme = new List<string>();
+        public Historial historial = new Historial();
         private TimeSpan position;
         private TimeSpan suma = new TimeSpan();
         private WinAjuste win;
@@ -53,6 +54,17 @@ namespace Reproductor_de_Musica
             {
                 GetTheme();
             }
+
+            if (IO.File.Exists("historial.pytham"))
+            {
+                historial = Utilities<Historial>.GetFile("historial");
+                URLS = historial.LURL;
+         
+                foreach(var data in historial.LHistory)
+                {
+                    ListBox.Items.Add(data);
+                }
+            }
         }
         
         
@@ -65,7 +77,9 @@ namespace Reproductor_de_Musica
         {
             if(win != null)
                 win.Close();
+ 
             this.Close();
+
         }
 
         private void ButtonMinimize_Click(object sender, RoutedEventArgs e)
@@ -160,6 +174,13 @@ namespace Reproductor_de_Musica
                         ListBox.SelectedIndex = ListBox.Items.Count - 1;
 
                         suma += tagFile.Properties.Duration;
+
+
+                        // Guardamos el historial
+
+                        SaveHistorial(IO.Path.GetFileNameWithoutExtension(fd.SafeFileName));
+
+                        
                     }
                 }
             }
@@ -227,6 +248,9 @@ namespace Reproductor_de_Musica
                             ListBox.SelectedIndex = 0;
                         else
                             ListBox.SelectedIndex = ListBox.Items.Count - 1;
+
+                        //Guardamos el historial
+                        SaveHistorial();
                     }
                 }
             }
@@ -278,13 +302,24 @@ namespace Reproductor_de_Musica
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            
+            
+            
+        }
+
+        private void ListBox_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
             mediaPlayer.Open(new Uri(URLS[ListBox.SelectedIndex]));
             Name_Music.Text = ListBox.SelectedItem.ToString();
             IsPaused = true;
             Button_Pause_Click(sender, e);
             mediaPlayer.Play();
-            
         }
+
+        private void ListBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListBox.SelectedIndex = -1;
+        }
+
         //=======================================================================
 
         void Timer_Tick(object sender, EventArgs e)
@@ -447,6 +482,9 @@ namespace Reproductor_de_Musica
                 suma += tagLib.Properties.Duration;
             }
 
+
+            //Guardamos el historial
+            SaveHistorial();
             
 
 
@@ -483,7 +521,7 @@ namespace Reproductor_de_Musica
 
         public void GetTheme()
         {
-            LTheme = Utilidades.Utilities.GetFile("theme");
+            LTheme = Utilidades.Utilities<List<string>>.GetFile("theme");
 
             WrapPanel_Principal.Background = (Brush)new BrushConverter().ConvertFrom(LTheme[0]);
 
@@ -523,5 +561,41 @@ namespace Reproductor_de_Musica
 
             
         }
+
+        /* Función para guardar las canciones del historial.
+            El parámetro varias es true cuando vamos a guardar más de una canción,
+            caso contario, false.
+         */
+
+        public void SaveHistorial(string pathname = "", bool varias = true)
+        {
+            
+            Historial historiall = new Historial
+            {
+                LURL = URLS
+            };
+            if(!varias)
+                historiall.LHistory.Add(IO.Path.GetFileNameWithoutExtension(pathname));
+            else
+            {
+                foreach(var data in ListBox.Items)
+                {
+                    historiall.LHistory.Add((string)data);
+                }
+            }
+            Utilities<Historial>.SaveData("historial", historiall);
+        }
+
+        private void Button_Delete_All_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListBox.Items.Count != 0) 
+            {
+                ListBox.Items.Clear();
+                IO.File.Delete("historial.pytham");
+                mediaPlayer.Stop();
+            }
+                
+        }
+
     }
 }
