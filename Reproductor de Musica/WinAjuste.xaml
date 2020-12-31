@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor_de_Musica"
         mc:Ignorable="d"
-        Title="Reproductor de Musica" Height="400" Width="800"  Background="#FF2F3136" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="icon.png">
+        Closing="Window_Closing"
+        Title="Reproductor de Musica" Height="400" Width="800" Background="#FF2F3136" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="icon.png">
+    
     <Grid>
         <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="800" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown">
             <Button Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="650,0,0,0">
@@ -17,7 +19,7 @@
         </WrapPanel>
 
         <Border BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Left" Height="364" VerticalAlignment="Top" Width="800" Margin="0,36,0,0"/>
-        <StackPanel Background="#FF151515" HorizontalAlignment="Left" Height="358" Margin="3,39,0,0" VerticalAlignment="Top" Width="158">
+        <StackPanel Background="#FF151515" HorizontalAlignment="Left" Height="358" Margin="0,39,0,0" VerticalAlignment="Top" Width="158">
             <WrapPanel Height="70" Margin="10,92,0,0">
                 <Rectangle x:Name="Rectangle_Barra" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Margin="7.3,-10,4,-38"/>
                 <Image x:Name="Image_Theme"  Height="41" Width="26" Source="tema.png" Margin="0,0,-2,-27"/>
@@ -43,6 +45,8 @@
                 <Rectangle Fill="#FF151515" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FF212121" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFfdf008" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <RadioButton  x:Name ="RB_Modo_Oscuro" GroupName="Mode" Content="" Margin="10,0,0,0" IsChecked="True" PreviewMouseLeftButtonDown="RB_PreviewMouseLeftButtonDown"/>
             </WrapPanel>
 
@@ -53,20 +57,58 @@
                 <Rectangle Fill="#FFdedede" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FF318d99" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FF000000" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FF000000" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <RadioButton x:Name ="RB_Modo_Claro" GroupName="Mode" Content="" Margin="10,0,0,0" PreviewMouseLeftButtonDown="RB_PreviewMouseLeftButtonDown"/>
             </WrapPanel>
 
             <TextBlock x:Name="TextBlock_Modo_Opera" TextWrapping="Wrap" Text="Modo Opera GX" FontSize="16" FontFamily="Verdana" Foreground="White" Margin="0,15,0,0"/>
             <WrapPanel x:Name="WrapPanel_Opera" Height="24" Margin="0,22,0,0">
                 <Rectangle Fill="#FF121019" Height="14" Stroke="White" Width="12"/>
-                <Rectangle Fill="#FF1e1b2a" Height="14" Stroke="Black" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FF1e1b2a" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FF1c1726" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FF1c1730" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <Rectangle Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFde1927" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFde1927" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
                 <RadioButton x:Name ="RB_Modo_Opera" GroupName="Mode" Content="" Margin="10,0,0,0" PreviewMouseLeftButtonDown="RB_PreviewMouseLeftButtonDown"/>
             </WrapPanel>
 
+            <TextBlock x:Name="TextBlock_Modo_Amazul" TextWrapping="Wrap" Text="Modo Amazul" FontSize="16" FontFamily="Verdana" Foreground="White" Margin="180,-225,0,0"/>
+            <WrapPanel x:Name="WrapPanel_Amazul" Height="24" Margin="180,-343.6,0,0">
+                <Rectangle Fill="#FF002420" Height="14" Stroke="White" Width="12"/>
+                <Rectangle Fill="#FF002429" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FF00363d" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FF002729" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFfdf008" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFfdf008" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <RadioButton x:Name ="RB_Modo_Amazul" GroupName="Mode" Content="" Margin="10,0,0,0" PreviewMouseLeftButtonDown="RB_PreviewMouseLeftButtonDown"/>
+            </WrapPanel>
 
+            <TextBlock x:Name="TextBlock_Modo_Quartz" TextWrapping="Wrap" Text="Modo Rose Quartz" FontSize="16" FontFamily="Verdana" Foreground="White" Margin="180,-144.8,0,0"/>
+            <WrapPanel x:Name="WrapPanel_Quartz" Height="24" Margin="180,-183,0,0">
+                <Rectangle Fill="#FF1d0c13" Height="14" Stroke="White" Width="12"/>
+                <Rectangle Fill="#FF1d0c13" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FF2b121c" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FF351622" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFf2688d" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <Rectangle Fill="#FFf2688d" Height="14" Stroke="White" Width="12" Margin="5,0,0,0"/>
+                <RadioButton x:Name ="RB_Modo_Quartz" GroupName="Mode" Content="" Margin="10,0,0,0" PreviewMouseLeftButtonDown="RB_PreviewMouseLeftButtonDown"/>
+            </WrapPanel>
+
+            <TextBlock x:Name="TextBlock_Modo_P" TextWrapping="Wrap" Text="Modo Personalizado" FontSize="16" FontFamily="Verdana" Foreground="White" Margin="180,-64,0,0"/>
+            <WrapPanel x:Name="WrapPanel_P" Height="24" Margin="180,-24,0,0">
+                <Rectangle x:Name="Rectangle1" Fill="black" Height="14" Stroke="White" Width="12" Cursor="Hand" MouseLeftButtonDown="Color_MouseLeftButtonDown" />
+                <Rectangle x:Name="Rectangle2" Fill="black" Height="14" Stroke="White" Width="12" Cursor="Hand" Margin="5,0,0,0" MouseLeftButtonDown="Color_MouseLeftButtonDown"/>
+                <Rectangle x:Name="Rectangle3" Fill="black" Height="14" Stroke="White" Width="12" Cursor="Hand" Margin="5,0,0,0" MouseLeftButtonDown="Color_MouseLeftButtonDown"/>
+                <Rectangle x:Name="Rectangle4" Fill="black" Height="14" Stroke="White" Width="12" Cursor="Hand" Margin="5,0,0,0" MouseLeftButtonDown="Color_MouseLeftButtonDown"/>
+                <Rectangle x:Name="Rectangle5" Fill="#FFFFFFFF" Height="14" Stroke="White" Width="12" Cursor="Hand" Margin="5,0,0,0" MouseLeftButtonDown="Color_MouseLeftButtonDown"/>
+                <Rectangle x:Name="Rectangle6" Fill="black" Height="14" Stroke="White" Width="12" Cursor="Hand" Margin="5,0,0,0" MouseLeftButtonDown="Color_MouseLeftButtonDown"/>
+                <Rectangle x:Name="Rectangle7" Fill="black" Height="14" Stroke="White" Width="12" Cursor="Hand" Margin="5,0,0,0" MouseLeftButtonDown="Color_MouseLeftButtonDown"/>
+                <RadioButton x:Name ="RB_Modo_P" GroupName="Mode" Content="" Margin="10,0,0,0" PreviewMouseLeftButtonDown="RB_PreviewMouseLeftButtonDown"/>
+            </WrapPanel>
 
         </StackPanel>
 

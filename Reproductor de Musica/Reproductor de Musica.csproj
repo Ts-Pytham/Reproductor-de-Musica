@@ -108,11 +108,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColorsRGB.xaml.cs">
+      <DependentUpon>ColorsRGB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\Historial.cs" />
     <Compile Include="Utilidades\Utilities.cs" />
     <Compile Include="WinAjuste.xaml.cs">
       <DependentUpon>WinAjuste.xaml</DependentUpon>
     </Compile>
+    <Page Include="ColorsRGB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

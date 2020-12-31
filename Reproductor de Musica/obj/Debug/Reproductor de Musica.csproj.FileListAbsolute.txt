@@ -28,3 +28,5 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.CopyComplete
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WinAjuste.g.cs
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WinAjuste.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\ColorsRGB.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\ColorsRGB.baml

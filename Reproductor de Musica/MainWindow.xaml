@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor_de_Musica"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="Reproductor de Musica" Height="720" Width="1280"  Background="#FF2F3136" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="icon.png">
-    <Grid>
 
+    <Grid>
+        <Border x:Name="Border1" BorderBrush="#FFfdf008" BorderThickness="1" HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="180"/>
+        <Border  x:Name="Border2" BorderBrush="#FFfdf008" BorderThickness="1" HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="1280"/>
         <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="1280" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown">
             <Button x:Name="Button_Minus" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="1130,0,0,0">
                 <Image Source="/IMG/minimizar.png" Height="26" Width="24"></Image>
@@ -17,10 +20,10 @@
             </Button>
         </WrapPanel>
 
-        <StackPanel x:Name="StackPanel_Principal" HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="180" Background="#FF151515">
+        <StackPanel x:Name="StackPanel_Principal" HorizontalAlignment="Left" Height="582" Margin="1,37,0,0" VerticalAlignment="Top" Width="178" Background="#FF151515">
             <WrapPanel Height="70" Margin="10,92,0,0">
                 <Rectangle x:Name="Rectangle_Barra" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
-                <Image x:Name="Image_Add"  Height="41" Width="26" Source="/IMG/circulo-plus.png" Margin="5,0,0,0" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                <Image x:Name="Image_Add"  Height="41" Width="26" Source="/IMG/circulo-plus.png" Margin="5,0,0,0" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Cursor="Hand"/>
                 <TextBlock x:Name="TextBlock_Add" TextWrapping="Wrap" Text="Agregar Música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana"  MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold">
 
                 </TextBlock>
@@ -31,20 +34,20 @@
 
             <WrapPanel Height="70" Margin="10,-4,0,0">
                 <Rectangle x:Name="Rectangle_Barra1" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
-                <Image x:Name="Image_PlayList" Height="41" Width="26" Source="/IMG/playlist.png" Margin="5,0,0,0" MouseLeftButtonDown ="TextBlock_MouseLeftButtonDown"/>
+                <Image x:Name="Image_PlayList" Height="41" Width="26" Source="/IMG/playlist.png" Margin="5,0,0,0" MouseLeftButtonDown ="TextBlock_MouseLeftButtonDown" Cursor="Hand"/>
                 <TextBlock x:Name="TextBlock_PlayList" TextWrapping="Wrap" Text="Agregar PlayList" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold"/>
 
             </WrapPanel>
 
             <WrapPanel Height="70" Margin="10,-4,0,0">
                 <Rectangle x:Name="Rectangle_Barra2" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
-                <Image x:Name="Image_Favorite" Height="41" Width="26" Source="/IMG/Favorite/favorite.png"  Margin="5,0,0,0"/>
-                <TextBlock x:Name="TextBlock_Favorite"  TextWrapping="Wrap" Text="Favoritas" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold"/>
+                <Image x:Name="Image_Favorite" Height="41" Width="26" Source="/IMG/Favorite/favorite.png"  Margin="5,0,0,0" Cursor="Hand" MouseLeftButtonDown="TextBlock_Favorite_MouseLeftButtonDown"/>
+                <TextBlock x:Name="TextBlock_Favorite"  TextWrapping="Wrap" Text="Favoritas" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" MouseLeftButtonDown="TextBlock_Favorite_MouseLeftButtonDown" FontWeight="Bold"/>
             </WrapPanel>
 
             <WrapPanel Height="70" Margin="10,-4,0,0">
                 <Rectangle x:Name="Rectangle_Barra3" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
-                <Image x:Name="Image_Ajuste" Height="41" Width="26" Source="/IMG/ajuste2.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown"/>
+                <Image x:Name="Image_Ajuste" Height="41" Width="26" Source="/IMG/ajuste2.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown" Cursor="Hand"/>
                 <TextBlock x:Name="TextBlock_Ajuste" TextWrapping="Wrap" Text="Ajustes" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown"/>
             </WrapPanel>
 
@@ -68,17 +71,17 @@
 
 
             </StackPanel>
-            <Slider x:Name="Slider_Volumen" Width="218" Height="36" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="1" Margin="115,0,0,24" ValueChanged="Slider_ValueChanged"/>
+            <Slider x:Name="Slider_Volumen" Width="218" Height="36" Style="{DynamicResource Horizontal_Slider}" Value="0.5" Maximum="1" Margin="115,0,0,24" ValueChanged="Slider_ValueChanged" MouseMove="Slider_MouseMove" IsMoveToPointEnabled="True"/>
 
         </WrapPanel>
 
 
         <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="90,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White"/>
 
-        <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider1}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp"/>
+        <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp" ValueChanged="Slider_Carga_ValueChanged"  IsMoveToPointEnabled="True"/>
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
         <TextBlock x:Name="Text_MaxLength" HorizontalAlignment="Left" Margin="822,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
-        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="#FF2F3136" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" AllowDrop="True" Drop="ListBox_Drop" MouseLeftButtonDown="ListBox_MouseLeftButtonDown"  PreviewMouseDoubleClick="ListBox_PreviewMouseDoubleClick" >
+        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="Transparent" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" AllowDrop="True" Drop="ListBox_Drop" MouseLeftButtonDown="ListBox_MouseLeftButtonDown"  PreviewMouseDoubleClick="ListBox_PreviewMouseDoubleClick">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
@@ -97,9 +100,10 @@
             </ListBox.ItemContainerStyle>
 
         </ListBox>
-        <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
+        <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_Favorite_MouseLeftButtonDown"/>
         <TextBlock x:Name="TextBlock_Info_PlayList" HorizontalAlignment="Left" Margin="240,588,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana"/>
-        <Button Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
+        <Button x:Name="Button_Erase" Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
+
 
 
 

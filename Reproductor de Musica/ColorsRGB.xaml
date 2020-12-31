@@ -1,0 +1,29 @@
+﻿<Window x:Class="Reproductor_de_Musica.ColorsRGB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reproductor_de_Musica"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="Colors" Height="320" Width="600" Background="#FF2F3136" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="icon.png">
+    <Grid>
+        <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="600" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown">
+            <Button Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="450,0,0,0">
+                <Image Source="/IMG/minimizar.png" Height="26" Width="24"></Image>
+            </Button>
+            <Button Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonX_Click" Style="{DynamicResource ButtonClose}" >
+                <Image Source="/IMG/cerrar.png" Height="14" Width="11"></Image>
+            </Button>
+        </WrapPanel>
+        <Slider x:Name="R" HorizontalAlignment="Left" Margin="76,70,0,0" VerticalAlignment="Top" Width="410"  Style="{DynamicResource Horizontal_Slider}" Maximum="255" ValueChanged="Slider_ValueChanged" IsMoveToPointEnabled="True"/>
+        <Slider x:Name="G" HorizontalAlignment="Left" Margin="76,148,0,0" VerticalAlignment="Top" Width="410" Style="{DynamicResource Horizontal_Slider}" Maximum="255" ValueChanged="Slider_ValueChanged" IsMoveToPointEnabled="True"/>
+        <Slider x:Name="B" HorizontalAlignment="Left" Margin="76,226,0,0" VerticalAlignment="Top" Width="410" Style="{DynamicResource Horizontal_Slider}" Maximum="255" ValueChanged="Slider_ValueChanged" IsMoveToPointEnabled="True"/>
+
+        <TextBox x:Name="TextBox_R" HorizontalAlignment="Left" Height="23" Margin="520,70,0,0"  Text="0" VerticalAlignment="Top" Width="60" MaxLength="3" TextChanged="TextBox_TextChanged" KeyDown="TextBox_KeyDown"/>
+        <TextBox x:Name="TextBox_G" HorizontalAlignment="Left" Height="23" Margin="520,146,0,0" Text="0" VerticalAlignment="Top" Width="60" MaxLength="3" TextChanged="TextBox_TextChanged" KeyDown="TextBox_KeyDown"/>
+        <TextBox x:Name="TextBox_B" HorizontalAlignment="Left" Height="23" Margin="520,226,0,0" Text="0" VerticalAlignment="Top" Width="60" MaxLength="3" TextChanged="TextBox_TextChanged" KeyDown="TextBox_KeyDown"/>
+
+
+    </Grid>
+</Window>

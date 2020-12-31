@@ -38,5 +38,13 @@ namespace Reproductor_de_Musica.Utilidades
 
             CreateFile(nombre, list);
        }
+
+       public static bool BinarySearch(List<T> ls, T item)
+        {
+            ls.Sort();
+            if (ls.BinarySearch(item) > -1)
+                return true;
+            return false;
+        }
     }
 }
