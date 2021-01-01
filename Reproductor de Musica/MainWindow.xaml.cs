@@ -47,14 +47,13 @@ namespace Reproductor_de_Musica
          */
         public int theme = 0;
 
-      
-
 
         
         public MainWindow()
         {
             
             InitializeComponent();
+            
             if (IO.File.Exists("theme.pytham"))
             {
                 GetTheme();
@@ -204,8 +203,19 @@ namespace Reproductor_de_Musica
                         mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 
                         TagLib.File tagFile = TagLib.File.Create(fd.FileName, "audio/mp3", TagLib.ReadStyle.Average);
-                        ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(fd.SafeFileName)}");
+                        
 
+                        string str = $"Autor: {((tagFile.Tag.FirstAlbumArtist != "") ? tagFile.Tag.FirstAlbumArtist : "N/A")}";
+                        ToolTip toolTip = new ToolTip
+                        {
+                            Content = str
+                        };
+                        TextBlock tb = new TextBlock
+                        {
+                            Text = $"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(fd.SafeFileName)}",
+                            ToolTip = toolTip
+                        };
+                        ListBox.Items.Add(tb);
                         URLS.Add(fd.FileName);
                         //TextBlock_Author_Name.Text = TagLib.File.Create(fd.FileName).Tag.FirstAlbumArtist;
                         ListBox.SelectedIndex = ListBox.Items.Count - 1;
@@ -263,12 +273,9 @@ namespace Reproductor_de_Musica
                             //ListBox.Items.Add($"{ListBox.Items.Count + 1} - {tagFile.Properties.N}");
                             URLS.Add(fd.FileNames[i]);
                             
+                            
                             suma += tagFile.Properties.Duration;
                         }
-
-
-
-
 
 
                         // Comprueba si en la lista hay música, si no hay pone el index en 0.
@@ -283,25 +290,32 @@ namespace Reproductor_de_Musica
                             ListBox.SelectedIndex = ListBox.Items.Count - 1;
                             mediaPlayer.Open(new Uri(URLS[URLS.Count - 1]));
                            
-                        }
-
-                        
+                        }          
                     }
                 }
-            }
-
-            
+            }  
         }
 
         
         private void MediaPlayer_MediaOpened(object sender, EventArgs e)
         {
-            
+           
+
             mediaPlayer.Play();
             GetFavorite();
+            int data = ListBox.SelectedIndex;
             TextBlock_Info_PlayList.Text = $"Duración total: {suma:dd\\:hh\\:mm\\:ss}";
             TextBlock_Author_Name.Text = TagLib.File.Create(URLS[ListBox.SelectedIndex], "audio/mp3", TagLib.ReadStyle.Average).Tag.FirstAlbumArtist;
             Name_Music.Text = IO.Path.GetFileNameWithoutExtension(URLS[ListBox.SelectedIndex]);
+
+            Name_Music.ToolTip = new ToolTip()
+            {
+                Content = Name_Music.Text,
+                Background = Brushes.Black,
+                Foreground = Brushes.White
+                
+            };
+
             position = mediaPlayer.NaturalDuration.TimeSpan;
             Name_Song_URL = URLS[ListBox.SelectedIndex];
             Slider_Carga.Minimum = 0;
@@ -416,6 +430,7 @@ namespace Reproductor_de_Musica
         {
             Slider_Carga.Value = mediaPlayer.Position.TotalSeconds;
             Text_MinLength.Text = mediaPlayer.Position.ToString(@"mm\:ss");
+            
             if(Text_MinLength.Text == Text_MaxLength.Text)
             {
                 if(ListBox.Items.Count != 1 && ListBox.SelectedIndex != ListBox.Items.Count - 1)
@@ -635,7 +650,7 @@ namespace Reproductor_de_Musica
             {
                 List<string> aux = new List<string>(ListFavorites);
 
-                string str = (string)ListBox.Items[ListBox.SelectedIndex];
+                string str = ((TextBlock)ListBox.Items[ListBox.SelectedIndex]).ToString();
 
                 if (!IsFavorited)
                     str = str.Remove(0, 4);
@@ -747,7 +762,7 @@ namespace Reproductor_de_Musica
             {
                 foreach(var data in ListBox.Items)
                 {
-                    historiall.LHistory.Add((string)data);
+                    historiall.LHistory.Add(((TextBlock)data).ToString());
                 }
             }
             Utilities<Historial>.SaveData("historial", historiall);

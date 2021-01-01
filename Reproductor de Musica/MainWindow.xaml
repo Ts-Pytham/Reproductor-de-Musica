@@ -52,21 +52,36 @@
             </WrapPanel>
 
         </StackPanel>
-
+        
         <WrapPanel x:Name="WrapPanel_Secundaria" HorizontalAlignment="Left" Height="100" Margin="0,620,0,0" VerticalAlignment="Top" Width="1280" Background="#FF212121">
-            <TextBlock x:Name="Name_Music" Text="-" Foreground="White" FontFamily="Verdana" Padding="90,31,0,0" Width="200"/>
+            <TextBlock Text="" Foreground="White" FontFamily="Verdana" Padding="90,31,0,0" Width="200"/>
             <StackPanel Height="100" Width="574" Margin="150,0,0,0">
                 <Image Height="23" Source="/IMG/Aleatorio/barajar.png" Margin="202,17,340,6"/>
 
-                <Image x:Name="Anterior" Height="23" Source="/IMG/Models_Anterior/anterior.png" Margin="245,-36,303,0" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                <Image x:Name="Anterior" Height="23" Source="/IMG/Models_Anterior/anterior.png" Margin="245,-36,303,0" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                    <Image.ToolTip>
+                        <ToolTip>Anterior canción</ToolTip>
+                    </Image.ToolTip>
+                </Image>
 
 
                 <Button x:Name="Button_Reproductor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="43" Height="43" Style="{DynamicResource ButtonStyle1}" RenderTransformOrigin="0.5,0.5" Click="Button_Pause_Click" Margin="287,-39,0,0">
                     <Image Source="/IMG/boton-de-play.png"/>
+                    <Button.ToolTip>
+                        <ToolTip>Pausar/Renaudar música</ToolTip>
+                    </Button.ToolTip>
                 </Button>
 
-                <Image x:Name="Siguiente" Height="23" Margin="345,-44,199,0" Source="/IMG/Models_Siguiente/siguiente.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                <Image x:Name="Repetir" Height="23" Source="/IMG/Repetir/actualizar.png" Margin="388,-42,162,0" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp" />
+                <Image x:Name="Siguiente" Height="23" Margin="345,-44,199,0" Source="/IMG/Models_Siguiente/siguiente.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                    <Image.ToolTip>
+                        <ToolTip>Siguiente canción</ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <Image x:Name="Repetir" Height="23" Source="/IMG/Repetir/actualizar.png" Margin="388,-42,162,0" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp" >
+                    <Image.ToolTip>
+                        <ToolTip>Repetir canción</ToolTip>
+                    </Image.ToolTip>
+                </Image>
 
 
 
@@ -75,8 +90,8 @@
 
         </WrapPanel>
 
-
-        <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="90,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="Name_Music"  HorizontalAlignment="Left" Margin="90,651,0,0" Foreground="White" FontFamily="Verdana" Text="-" VerticalAlignment="Top" Width="200"/>
+        <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="90,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" Width="200"/>
 
         <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp" ValueChanged="Slider_Carga_ValueChanged"  IsMoveToPointEnabled="True"/>
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
@@ -100,9 +115,15 @@
             </ListBox.ItemContainerStyle>
 
         </ListBox>
-        <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_Favorite_MouseLeftButtonDown"/>
+        <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_Favorite_MouseLeftButtonDown">
+            <Image.ToolTip>
+                <ToolTip>Agregar a favoritos</ToolTip>
+            </Image.ToolTip>
+        </Image>
         <TextBlock x:Name="TextBlock_Info_PlayList" HorizontalAlignment="Left" Margin="240,588,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana"/>
         <Button x:Name="Button_Erase" Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
+
+
 
 
 
