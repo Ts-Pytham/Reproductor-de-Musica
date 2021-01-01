@@ -52,7 +52,7 @@
             </WrapPanel>
 
         </StackPanel>
-        
+
         <WrapPanel x:Name="WrapPanel_Secundaria" HorizontalAlignment="Left" Height="100" Margin="0,620,0,0" VerticalAlignment="Top" Width="1280" Background="#FF212121">
             <TextBlock Text="" Foreground="White" FontFamily="Verdana" Padding="90,31,0,0" Width="200"/>
             <StackPanel Height="100" Width="574" Margin="150,0,0,0">
@@ -90,8 +90,8 @@
 
         </WrapPanel>
 
-        <TextBlock x:Name="Name_Music"  HorizontalAlignment="Left" Margin="90,651,0,0" Foreground="White" FontFamily="Verdana" Text="-" VerticalAlignment="Top" Width="200"/>
-        <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="90,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" Width="200"/>
+        <TextBlock x:Name="Name_Music"  HorizontalAlignment="Left" Margin="120,651,0,0" Foreground="White" FontFamily="Verdana" Text="-" VerticalAlignment="Top" Width="200"/>
+        <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="120,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" Width="200"/>
 
         <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp" ValueChanged="Slider_Carga_ValueChanged"  IsMoveToPointEnabled="True"/>
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
@@ -122,6 +122,7 @@
         </Image>
         <TextBlock x:Name="TextBlock_Info_PlayList" HorizontalAlignment="Left" Margin="240,588,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana"/>
         <Button x:Name="Button_Erase" Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
+        <Image x:Name="Image_Song"  HorizontalAlignment="Left" Height="80" Margin="36,630,0,0" VerticalAlignment="Top" Width="74" Stretch="UniformToFill" />
 
 
 

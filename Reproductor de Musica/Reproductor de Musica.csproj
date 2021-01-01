@@ -238,7 +238,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="IMG\no_found_music.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\ajuste.png" />
   </ItemGroup>
