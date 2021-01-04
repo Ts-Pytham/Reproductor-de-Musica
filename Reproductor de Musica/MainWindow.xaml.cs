@@ -38,7 +38,7 @@ namespace Reproductor_de_Musica
         private string Name_Song_URL;
         public Historial historial = new Historial();
         private TimeSpan position;
-        private int IsSelected = -1; // Comprueba que canción está seleccionada para darle color
+        public int IsSelected = -1; // Comprueba que canción está seleccionada para darle color
 
         private TimeSpan suma = new TimeSpan();
         public WinAjuste win;
@@ -57,6 +57,7 @@ namespace Reproductor_de_Musica
             
             if (IO.File.Exists("theme.pytham"))
             {
+                
                 GetTheme();
             }
 
@@ -71,6 +72,7 @@ namespace Reproductor_de_Musica
 
             if (IO.File.Exists("historial.pytham"))
             {
+                MessageBox.Show(IO.Path.GetFullPath("historial.pytham"));
                 historial = Utilities<Historial>.GetFile("historial");
                 URLS = historial.LURL;
                 int i = 0;
@@ -165,6 +167,12 @@ namespace Reproductor_de_Musica
             /* Creo el try catch para comprobar si lo que ingresa es un botón o un imagen
              * Sirve para que tanto el botón como el textBlock puedan acceder a sus bloque de código.
              */
+            if (IsFavorited)
+            {
+                MessageBox.Show("¡No puedes agregar una o varias música cuando estés en modo favorito!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             TextBlock textBlock = new TextBlock();
             Image image = new Image();
             try
@@ -190,17 +198,13 @@ namespace Reproductor_de_Musica
 
                 using (var fd = new WinForms.OpenFileDialog())
                 {
-                    fd.Filter = "Music Files(*.MP3; *.Webm)|*.MP3; *.Webm";
+                    fd.Filter = "Music Files(*.MP3; *.Webm; *.wav)|*.MP3; *.Webm; *.wav";
 
                     fd.FilterIndex = 1;
 
                     if (fd.ShowDialog() == WinForms.DialogResult.OK)
                     {
-
-                       
-
                         mediaPlayer.Open(new Uri(fd.FileName));
-
 
                         Image img = new Image { Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/pausa.png")) };
                         Button_Reproductor.Content = img;
@@ -221,7 +225,6 @@ namespace Reproductor_de_Musica
 
                         TagLib.File tagFile = TagLib.File.Create(fd.FileName, "audio/mp3", TagLib.ReadStyle.Average);
 
-                        
                         string str = $"Autor: {(!String.IsNullOrEmpty(tagFile.Tag.FirstAlbumArtist) ? tagFile.Tag.FirstAlbumArtist : "N/A")}.\n" +
                             $"Duración: {tagFile.Properties.Duration:hh\\:mm\\:ss}.\n" +
                             $"Tamaño: {Math.Round(new IO.FileInfo(fd.FileName).Length/ 1048576d, 3)} MB.\n" +
@@ -321,19 +324,23 @@ namespace Reproductor_de_Musica
                             suma += tagFile.Properties.Duration;
                         }
 
+                        if (IsSelected != -1)
+                            ((TextBlock)ListBox.Items[IsSelected]).Foreground = Brushes.White;
 
                         // Comprueba si en la lista hay música, si no hay pone el index en 0.
                         if (IsEmpty)
                         {
                             ListBox.SelectedIndex = 0;
+                            ((TextBlock)ListBox.Items[0]).Foreground = (Brush)new BrushConverter().ConvertFrom("#FFFE4164");
                             mediaPlayer.Open(new Uri(URLS[0]));
-                          
+                            IsSelected = 0;
                         }
                         else
                         {
                             ListBox.SelectedIndex = ListBox.Items.Count - 1;
+                            ((TextBlock)ListBox.Items[ListBox.SelectedIndex]).Foreground = (Brush)new BrushConverter().ConvertFrom("#FFFE4164");
                             mediaPlayer.Open(new Uri(URLS[URLS.Count - 1]));
-                           
+                            IsSelected = ListBox.Items.Count - 1;
                         }          
                     }
                 }
@@ -343,7 +350,6 @@ namespace Reproductor_de_Musica
         
         private void MediaPlayer_MediaOpened(object sender, EventArgs e)
         {
-           
 
             mediaPlayer.Play();
             GetFavorite();
@@ -472,12 +478,20 @@ namespace Reproductor_de_Musica
                 timer.Start();
 
                 mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
-
+               
                 mediaPlayer.Open(new Uri(URLS[ListBox.SelectedIndex]));
 
                 if (IsSelected != -1)
-                    ((TextBlock)ListBox.Items[IsSelected]).Foreground = Brushes.White;
-
+                {
+                    try
+                    {
+                        ((TextBlock)ListBox.Items[IsSelected]).Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[4]);
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    {
+                        ((TextBlock)ListBox.Items[IsSelected - 1]).Foreground = (Brush)new BrushConverter().ConvertFrom(LTheme[4]);
+                    }
+                }
                 ((TextBlock)ListBox.Items[ListBox.SelectedIndex]).Foreground = (Brush)new BrushConverter().ConvertFrom("#FFFE4164");
                 IsSelected = ListBox.SelectedIndex;
                 IsPaused = true;
@@ -494,7 +508,69 @@ namespace Reproductor_de_Musica
             ListBox.SelectedIndex = -1;
         }
 
-       
+        /* Esta función sirve para arrastrar archivos de música*/
+
+        private void ListBox_Drop(object sender, DragEventArgs e)
+        {
+            if (IsFavorited)
+            {
+                MessageBox.Show("¡No puedes agregar una o varias músicas cuando estés en modo favorito!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            /*Obtiene la url del archivo*/
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            //MessageBox.Show($"la posición 0 es: {files[0]}");
+            foreach (var file in files)
+            {
+                string GetExtensionFile = IO.Path.GetExtension(file);
+                int CompareResult1 = String.Compare(GetExtensionFile, ".mp3", StringComparison.OrdinalIgnoreCase);
+                int CompareResult2 = String.Compare(GetExtensionFile, ".WebM", StringComparison.OrdinalIgnoreCase);
+                int CompareResult3 = String.Compare(GetExtensionFile, ".wav", StringComparison.OrdinalIgnoreCase);
+                if (CompareResult1 != 0 && CompareResult2 != 0 && CompareResult3 != 0)
+                {
+                    MessageBox.Show($"Formato de archivo inválido.\nArchivo: {file}", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    
+                }
+                else
+                {
+                    TagLib.File tagLib = TagLib.File.Create(file, "audio/mp3", TagLib.ReadStyle.Average);
+                    
+                    string str = $"Autor: {(!String.IsNullOrEmpty(tagLib.Tag.FirstAlbumArtist) ? tagLib.Tag.FirstAlbumArtist : "N/A")}.\n" +
+                            $"Duración: {tagLib.Properties.Duration:hh\\:mm\\:ss}.\n" +
+                            $"Tamaño: {Math.Round(new IO.FileInfo(file).Length / 1048576d, 3)} MB.\n" +
+                            $"Album: {(!String.IsNullOrEmpty(tagLib.Tag.Album) ? tagLib.Tag.Album : "N/A")}.";
+
+                    ToolTip toolTip = new ToolTip
+                    {
+                        Content = str
+                    };
+                    TextBlock tb = new TextBlock
+                    {
+                        Text = $"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(file)}",
+                        ToolTip = toolTip
+                    };
+                    ListBox.Items.Add(tb);
+                    URLS.Add(file);
+                }
+
+            }
+
+            DispatcherTimer timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
+
+            TextBlock_Info_PlayList.Text = $"Duración total: {suma:dd\\:hh\\:mm\\:ss}";
+
+            
+        }
+
 
         //=======================================================================
 
@@ -508,7 +584,7 @@ namespace Reproductor_de_Musica
                 if(ListBox.Items.Count != 1 && ListBox.SelectedIndex != ListBox.Items.Count - 1)
                 {
                     mediaPlayer.Open(new Uri(URLS[ListBox.SelectedIndex + 1]));
-                    Name_Music.Text = ListBox.Items[ListBox.SelectedIndex + 1].ToString();
+                    Name_Music.Text = ((TextBlock)ListBox.Items[ListBox.SelectedIndex + 1]).Text;
                     ListBox.SelectedIndex += 1;
                     mediaPlayer.Play();
                 }
@@ -625,46 +701,6 @@ namespace Reproductor_de_Musica
         }
 
 
-
-        /* Esta función sirve para arrastrar archivos de música*/
-
-        private void ListBox_Drop(object sender, DragEventArgs e)
-        {
-            /*Obtiene la url del archivo*/
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-            //MessageBox.Show($"la posición 0 es: {files[0]}");
-            foreach (var file in files)
-            {
-                if (IO.Path.GetExtension(file) != ".mp3" && IO.Path.GetExtension(file) != ".WebM")
-                {
-                    MessageBox.Show("Formato de archivo inválido", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-
-            }
-
-            DispatcherTimer timer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(1)
-            };
-            timer.Tick += Timer_Tick;
-            timer.Start();
-
-            mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
-
-            int len = files.Length;
-            for(int i = 0; i != len; ++i)
-            {
-                TagLib.File tagLib = TagLib.File.Create(files[i], "audio/mp3", TagLib.ReadStyle.Average);
-
-                ListBox.Items.Add($"{ListBox.Items.Count + 1} - {IO.Path.GetFileNameWithoutExtension(files[i])}");
-                URLS.Add(files[i]);
-                suma += tagLib.Properties.Duration;
-            }
-
-            TextBlock_Info_PlayList.Text = $"Duración total: {suma:dd\\:hh\\:mm\\:ss}";
-        }
         /*               Eventos para guardar las canciones favoritas           */
 
         
@@ -683,7 +719,16 @@ namespace Reproductor_de_Musica
                 }
                 else
                 {
+
                     IMG_Favorite.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Favorite/favorite.png"));
+                    if (IsFavorited)
+                    {
+                        URLS.RemoveAt(ListBox.SelectedIndex);
+                        ListBox.Items.RemoveAt(ListBox.SelectedIndex);
+                        mediaPlayer.Stop();
+                        
+                    }
+                        
                     ListFavorites.Remove(Name_Music.Text);
                     F_URLS.Remove(Name_Song_URL);
                 }
@@ -769,6 +814,38 @@ namespace Reproductor_de_Musica
                     IsFavorited = false;
 
                 }
+            }
+            else if(ListBox.Items.Count == 0 && IsFavorited)
+            {
+                TextBlock_Favorite.Text = "Favoritas";
+                int i = 0;
+                URLS = LAux_URLS.ToList();
+
+                foreach (var data in LAux_Songs)
+                {
+                    TagLib.File tagFile = TagLib.File.Create(URLS[i], "audio/mp3", TagLib.ReadStyle.Average);
+
+                    string str = $"Autor: {(!String.IsNullOrEmpty(tagFile.Tag.FirstAlbumArtist) ? tagFile.Tag.FirstAlbumArtist : "N/A")}.\n" +
+                    $"Duración: {tagFile.Properties.Duration:hh\\:mm\\:ss}.\n" +
+                    $"Tamaño: {Math.Round(new IO.FileInfo(URLS[i]).Length / 1048576d, 3)} MB.\n" +
+                    $"Album: {(!String.IsNullOrEmpty(tagFile.Tag.Album) ? tagFile.Tag.Album : "N/A")}.";
+
+                    ToolTip toolTip = new ToolTip
+                    {
+                        Content = str
+                    };
+                    TextBlock tb = new TextBlock
+                    {
+                        Text = data,
+                        ToolTip = toolTip
+                    };
+
+                    ListBox.Items.Add(tb);
+                    i++;
+                }
+
+
+                IsFavorited = false;
             }
             
 

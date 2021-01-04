@@ -124,8 +124,21 @@ namespace Reproductor_de_Musica
                     }
                     else if (rect.Name == "Rectangle5")
                     {
+                        Window.Mainwindow.LTheme[4] = Window.Rectangle5.Fill.ToString();
+                        Window.Mainwindow.LTheme[6] = Window.Rectangle5.Fill.ToString();
+                        
                         Window.Mainwindow.Button_Erase.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
-                        Window.Mainwindow.ListBox.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
+                        int len = Window.Mainwindow.ListBox.Items.Count;
+                        for(int i = 0; i != len; ++i)
+                        {
+                            if (i != Window.Mainwindow.IsSelected)
+                            {
+                                
+                                TextBlock data = (TextBlock)Window.Mainwindow.ListBox.Items[i];
+                                data.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
+                            }
+                        }
+
                         Window.Mainwindow.TextBlock_Add.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
                         Window.Mainwindow.TextBlock_Favorite.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
                         Window.Mainwindow.TextBlock_PlayList.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));

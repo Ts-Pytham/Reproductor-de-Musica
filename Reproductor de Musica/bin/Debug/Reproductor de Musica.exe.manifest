@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reproductor de Musica.exe" size="261120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reproductor de Musica.exe" size="263168">
       <assemblyIdentity name="Reproductor de Musica" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZMaFr2HucM1Lk/yU2f9HuUet5205vsS+5r0nRSw2F/4=</dsig:DigestValue>
+        <dsig:DigestValue>udSbt3TmVnYsNxJkeo5MhrmlFFeYsFS/Oj/LX1IzEAk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

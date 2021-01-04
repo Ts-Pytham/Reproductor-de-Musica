@@ -73,6 +73,23 @@ namespace Reproductor_de_Musica
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if ((bool)RB_Modo_P.IsChecked)
+            {
+                List<string> list = new List<string>
+                {
+                    Rectangle1.Fill.ToString(),
+                    Rectangle2.Fill.ToString(),
+                    Rectangle3.Fill.ToString(),
+                    Rectangle4.Fill.ToString(),
+                    Rectangle5.Fill.ToString(),
+                    Rectangle6.Fill.ToString(),
+                    Rectangle5.Fill.ToString(),
+                    Rectangle7.Fill.ToString(),
+                    "5"
+                };
+
+                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+            }
             Mainwindow.win = null;
             if(colors != null)
                 colors.Close();
@@ -131,7 +148,8 @@ namespace Reproductor_de_Musica
             if(RB.Name == "RB_Modo_Claro" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 1;
-                Change_Theme("#FF72C8F1", "#FFFFFFFF", "#FFdedede", "#FF318d99", Brushes.Black, "#FFFFFFFF", "#FF000000", "#FF000000", false);
+                Mainwindow.LTheme[4] = Brushes.Black.ToString();
+                Change_Theme("#FF72C8F1", "#FFFFFFFF", "#FFdedede", "#FF318d99", Brushes.Black, "#FFFFFFFF", "#FF000000", "#FF000000");
                
                 List<string> list = new List<string>
                 {
@@ -151,6 +169,7 @@ namespace Reproductor_de_Musica
             else if (RB.Name == "RB_Modo_Oscuro" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 0;
+                Mainwindow.LTheme[4] = Brushes.White.ToString();
                 Change_Theme("#FF000000", "#FF2F3136", "#FF151515", "#FF212121", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFFFFFFF");
                 
                 List<string> list = new List<string>
@@ -171,6 +190,7 @@ namespace Reproductor_de_Musica
             else if (RB.Name == "RB_Modo_Opera" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 2;
+                Mainwindow.LTheme[4] = Brushes.White.ToString();
                 Change_Theme("#FF121019", "#FF1e1b2a", "#FF1c1726", "#FF1c1730", Brushes.White, "#FFde1927", "#FFCFCFCF", "#FFde1927");
                 List<string> list = new List<string>
                 {
@@ -190,6 +210,7 @@ namespace Reproductor_de_Musica
             else if (RB.Name == "RB_Modo_Amazul" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 3;
+                Mainwindow.LTheme[4] = Brushes.White.ToString();
                 Change_Theme("#FF002420", "#FF002429", "#FF00363d", "#FF002729", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFfdf008");
                 
                 List<string> list = new List<string>
@@ -211,6 +232,7 @@ namespace Reproductor_de_Musica
             else if (RB.Name == "RB_Modo_Quartz" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 4;
+                Mainwindow.LTheme[4] = Brushes.White.ToString();
                 Change_Theme("#FF1d0c13", "#FF1d0c13", "#FF2b121c", "#FF351622", Brushes.White, "#FFf2688d", "#FFCFCFCF", "#FFf2688d");
 
        
@@ -233,7 +255,7 @@ namespace Reproductor_de_Musica
             {
                 Mainwindow.theme = 5;
                 Change_Theme(Rectangle1.Fill.ToString(), Rectangle2.Fill.ToString(), Rectangle3.Fill.ToString(), Rectangle4.Fill.ToString(), Rectangle5.Fill, Rectangle6.Fill.ToString(), Rectangle5.Fill.ToString(), Rectangle7.Fill.ToString());
-
+                
                 List<string> list = new List<string>
                 {
                     Rectangle1.Fill.ToString(),
@@ -250,7 +272,7 @@ namespace Reproductor_de_Musica
                 RB.IsChecked = true;
             }
         }
-        private void Change_Theme(string color1, string color2, string color3, string color4, Brush color5, string color7, string color6, string color8, bool ModoOscuro = true)
+        private void Change_Theme(string color1, string color2, string color3, string color4, Brush color5, string color7, string color6, string color8)
         {
             Mainwindow.Background = (Brush)new BrushConverter().ConvertFrom(color2);
             Mainwindow.ListBox.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color8);
@@ -264,40 +286,23 @@ namespace Reproductor_de_Musica
 
             Mainwindow.Border1.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color7);
             Mainwindow.Border2.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color7);
-            /* Primero creo el diccionario de recurso, aplico su propiedad source y le doy
-             * la URL, luego uso ItemContainerStyle y le paso el diccionario. 
-             */
-           
-            ResourceDictionary resourceDictionary = new ResourceDictionary
-            {
-                Source = new Uri(@"pack://application:,,,/Styles/ListBox.xaml")
-            };
 
-            if (ModoOscuro)
+            int len = Mainwindow.ListBox.Items.Count;
+            for (int i = 0; i != len; ++i)
             {
-               
-                if(Mainwindow.theme != 5)
-                    Mainwindow.ListBox.ItemContainerStyle = (Style)resourceDictionary["Modo_Oscuro"];
-                else
+                if (i != Mainwindow.IsSelected)
                 {
-               
 
-                    TriggerCollection trigger = ((Style)resourceDictionary["Modo_P"]).Triggers;
-                    
-                    trigger[1].SetValue(ForegroundProperty, (Brush)new BrushConverter().ConvertFrom("#FFfc0303"));
-                   
-                    
-                    Mainwindow.ListBox.ItemContainerStyle = (Style)resourceDictionary["Modo_P"];
-
-                    
-                    MessageBox.Show(((TriggerCollection)((Style)resourceDictionary["Modo_P"]).Triggers)[1].GetValue(ForegroundProperty).ToString());
-                    MessageBox.Show(((TriggerCollection)((Style)Mainwindow.ListBox.ItemContainerStyle).Triggers)[1].GetValue(ForegroundProperty).ToString());
+                    TextBlock data = (TextBlock)Mainwindow.ListBox.Items[i];
+                    if(Mainwindow.theme == 1)
+                        data.Foreground = Brushes.Black;
+                    else if (Mainwindow.theme != 5)
+                        data.Foreground = Brushes.White;
+                    else
+                        data.Foreground = color5;
                 }
             }
-            else
-                Mainwindow.ListBox.ItemContainerStyle = (Style)resourceDictionary["Modo_Claro"];
-            
-            
+ 
             Mainwindow.WrapPanel_Principal.Background = (Brush)new BrushConverter().ConvertFrom(color1);
             Mainwindow.Button_X.Background = (Brush)new BrushConverter().ConvertFrom(color1);
             Mainwindow.Button_X.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color1);
