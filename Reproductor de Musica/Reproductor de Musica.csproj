@@ -29,8 +29,8 @@
     <ProductName>Reproductor de Música</ProductName>
     <PublisherName>Johan Sánchez</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <ApplicationRevision>7</ApplicationRevision>
-    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>3.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>

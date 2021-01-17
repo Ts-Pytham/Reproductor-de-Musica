@@ -675,7 +675,7 @@ namespace Reproductor_de_Musica
         {
             Image img = (Image)sender;
             
-            if (img.Name == "Siguiente" && IsSelected != -1)
+            if (img.Name == "Siguiente" && IsSelected != -1 && ListBox.Items.Count != 0)
             {
                 img.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Models_Siguiente/enter_siguiente.png"));
                 if (ListBox.Items.Count == 1)
@@ -689,7 +689,7 @@ namespace Reproductor_de_Musica
                     
                     int valor;
                     // Comprueba si Selected es diferente a la última canción 
-                    if (IsSelected != ListBox.Items.Count - 1)
+                    if (IsSelected != ListBox.Items.Count - 1 )
                     {
                         valor = IsSelected;
                         mediaPlayer.Open(new Uri(URLS[valor + 1]));
@@ -747,7 +747,7 @@ namespace Reproductor_de_Musica
                 Button_Pause_Click(sender, e);
                 mediaPlayer.Play();
             }
-            else if (img.Name == "Anterior" && IsSelected != -1)
+            else if (img.Name == "Anterior" && IsSelected != -1 && ListBox.Items.Count != 0)
             {
                 img.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Models_Anterior/enter_anterior.png"));
                 if (ListBox.Items.Count == 1)
@@ -793,12 +793,18 @@ namespace Reproductor_de_Musica
             }
             else if (img.Name == "Repetir")
             {
-                img.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Repetir/click_actualizar.png"));
-                mediaPlayer.Open(new Uri(URLS[ListBox.SelectedIndex]));
+                if (ListBox.Items.Count != 0) {
+                    img.Source = new BitmapImage(new Uri(@"pack://application:,,,/IMG/Repetir/click_actualizar.png"));
+                    int valor = ListBox.SelectedIndex;
+                    if (ListBox.SelectedIndex != IsSelected)
+                        valor = IsSelected;
 
-                IsPaused = true;
-                Button_Pause_Click(sender, e);
-                mediaPlayer.Play();
+                    mediaPlayer.Open(new Uri(URLS[valor]));
+
+                    IsPaused = true;
+                    Button_Pause_Click(sender, e);
+                    mediaPlayer.Play();
+                }
             }
         }
 
@@ -1118,6 +1124,12 @@ namespace Reproductor_de_Musica
                 mediaPlayer.Stop();
                 suma = new TimeSpan();
                 TextBlock_Info_PlayList.Text = $"";
+                Name_Music.Text = "-";
+  
+                TextBlock_Author_Name.Text = "-";
+                Text_MinLength.Text = "-";
+                Text_MaxLength.Text = "-";
+                IsSelected = -1;
             }
         }
 

@@ -7,7 +7,7 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Reproductor de Musica.exe.manifest" size="6554">
+    <dependentAssembly dependencyType="install" codebase="Application Files\Reproductor de Musica_3_2_0_2\Reproductor de Musica.exe.manifest" size="6554">
       <assemblyIdentity name="Reproductor de Musica.exe" version="3.2.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
