@@ -29,8 +29,8 @@
     <ProductName>Reproductor de Música</ProductName>
     <PublisherName>Johan Sánchez</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -86,6 +86,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -111,12 +115,19 @@
     <Compile Include="ColorsRGB.xaml.cs">
       <DependentUpon>ColorsRGB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Window_Streamer.xaml.cs">
+      <DependentUpon>Window_Streamer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\Historial.cs" />
     <Compile Include="Utilidades\Utilities.cs" />
     <Compile Include="WinAjuste.xaml.cs">
       <DependentUpon>WinAjuste.xaml</DependentUpon>
     </Compile>
     <Page Include="ColorsRGB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Window_Streamer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,6 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="charla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="live.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

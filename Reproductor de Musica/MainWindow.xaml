@@ -50,6 +50,11 @@
                 <Image x:Name="Image_Ajuste" Height="41" Width="26" Source="/IMG/ajuste2.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown" Cursor="Hand"/>
                 <TextBlock x:Name="TextBlock_Ajuste" TextWrapping="Wrap" Text="Ajustes" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown"/>
             </WrapPanel>
+            <WrapPanel Height="70" Margin="10,-4,0,0">
+                <Rectangle x:Name="Rectangle_Barra5" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
+                <Image x:Name="Image_Streamer" Height="41" Width="26" Source="live.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBox_Streamer_MouseLeftButtonDown" Cursor="Hand"/>
+                <TextBlock x:Name="TextBlock_Streamer" TextWrapping="Wrap" Text="Modo Streamer" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold" MouseLeftButtonDown="TextBox_Streamer_MouseLeftButtonDown"/>
+            </WrapPanel>
 
         </StackPanel>
 
@@ -89,8 +94,9 @@
             <Slider x:Name="Slider_Volumen" Width="218" Height="36" Style="{DynamicResource Horizontal_Slider}" Value="0.5" Maximum="1" Margin="115,0,0,24" ValueChanged="Slider_ValueChanged" MouseMove="Slider_MouseMove" IsMoveToPointEnabled="True"/>
 
         </WrapPanel>
-
-        <TextBlock x:Name="Name_Music"  HorizontalAlignment="Left" Margin="120,651,0,0" Foreground="White" FontFamily="Verdana" Text="-" VerticalAlignment="Top" Width="200"/>
+        <Canvas x:Name="Canvas_Music" Margin="120,650,959,27" ClipToBounds="True">
+            <TextBlock x:Name="Name_Music" Foreground="White" FontFamily="Verdana" Text="-"/>
+        </Canvas>
         <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="120,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" Width="200"/>
 
         <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp" ValueChanged="Slider_Carga_ValueChanged"  IsMoveToPointEnabled="True"/>
@@ -123,11 +129,6 @@
         <TextBlock x:Name="TextBlock_Info_PlayList" HorizontalAlignment="Left" Margin="240,588,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana"/>
         <Button x:Name="Button_Erase" Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
         <Image x:Name="Image_Song"  HorizontalAlignment="Left" Height="80" Margin="36,630,0,0" VerticalAlignment="Top" Width="74" Stretch="UniformToFill" />
-
-
-
-
-
 
 
     </Grid>

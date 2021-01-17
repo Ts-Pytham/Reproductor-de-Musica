@@ -25,7 +25,7 @@ namespace Reproductor_de_Musica
     public partial class WinAjuste : Window
     {
 
-        private readonly string version = "2.1";
+        private readonly string version = "3.2";
         public ColorsRGB colors;
 
 
@@ -148,7 +148,7 @@ namespace Reproductor_de_Musica
             if(RB.Name == "RB_Modo_Claro" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 1;
-                Mainwindow.LTheme[4] = Brushes.Black.ToString();
+               
                 Change_Theme("#FF72C8F1", "#FFFFFFFF", "#FFdedede", "#FF318d99", Brushes.Black, "#FFFFFFFF", "#FF000000", "#FF000000");
                
                 List<string> list = new List<string>
@@ -164,12 +164,13 @@ namespace Reproductor_de_Musica
                     "1"
                 };
                 Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_Oscuro" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 0;
-                Mainwindow.LTheme[4] = Brushes.White.ToString();
+                
                 Change_Theme("#FF000000", "#FF2F3136", "#FF151515", "#FF212121", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFFFFFFF");
                 
                 List<string> list = new List<string>
@@ -185,12 +186,13 @@ namespace Reproductor_de_Musica
                     "0"
                 };
                 Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_Opera" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 2;
-                Mainwindow.LTheme[4] = Brushes.White.ToString();
+               
                 Change_Theme("#FF121019", "#FF1e1b2a", "#FF1c1726", "#FF1c1730", Brushes.White, "#FFde1927", "#FFCFCFCF", "#FFde1927");
                 List<string> list = new List<string>
                 {
@@ -205,12 +207,13 @@ namespace Reproductor_de_Musica
                     "2"
                 };
                 Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_Amazul" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 3;
-                Mainwindow.LTheme[4] = Brushes.White.ToString();
+           
                 Change_Theme("#FF002420", "#FF002429", "#FF00363d", "#FF002729", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFfdf008");
                 
                 List<string> list = new List<string>
@@ -226,13 +229,14 @@ namespace Reproductor_de_Musica
                     "3"
                 };
                 Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
             
             else if (RB.Name == "RB_Modo_Quartz" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 4;
-                Mainwindow.LTheme[4] = Brushes.White.ToString();
+                
                 Change_Theme("#FF1d0c13", "#FF1d0c13", "#FF2b121c", "#FF351622", Brushes.White, "#FFf2688d", "#FFCFCFCF", "#FFf2688d");
 
        
@@ -248,6 +252,7 @@ namespace Reproductor_de_Musica
                     "#FFf2688d",
                     "4"
                 };
+                Mainwindow.LTheme = list;
                 Utilidades.Utilities<List<string>>.SaveData("theme", list);
                 RB.IsChecked = true;
             }

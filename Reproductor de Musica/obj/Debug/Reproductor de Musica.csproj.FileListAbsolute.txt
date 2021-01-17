@@ -30,3 +30,6 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WinAjuste.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\ColorsRGB.g.cs
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\ColorsRGB.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\src\Window_Streamer.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\src\Window_Streamer.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Drawing.Common.dll
