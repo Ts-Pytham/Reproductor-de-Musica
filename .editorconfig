@@ -1,0 +1,16 @@
+﻿[*.cs]
+
+# CS0618: El tipo o el miembro están obsoletos
+dotnet_diagnostic.CS0618.severity = none
+
+# IDE0058: El valor de la expresión no se utiliza nunca.
+dotnet_diagnostic.IDE0058.severity = none
+
+# IDE0055: Fijar formato
+dotnet_diagnostic.IDE0055.severity = none
+
+# IDE0011: Agregar llaves
+dotnet_diagnostic.IDE0011.severity = none
+
+# IDE0008: Usar un tipo explícito
+dotnet_diagnostic.IDE0008.severity = none

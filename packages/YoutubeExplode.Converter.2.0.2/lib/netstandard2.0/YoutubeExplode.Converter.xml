@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YoutubeExplode.Converter</name>
+    </assembly>
+    <members>
+        <member name="T:YoutubeExplode.Converter.ConversionExtensions">
+            <summary>
+            Extensions for <see cref="T:YoutubeExplode.Videos.VideoClient"/> that provide interface for downloading videos through FFmpeg.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionExtensions.DownloadAsync(YoutubeExplode.Videos.VideoClient,System.Collections.Generic.IReadOnlyList{YoutubeExplode.Videos.Streams.IStreamInfo},YoutubeExplode.Converter.ConversionRequest,System.IProgress{System.Double},System.Threading.CancellationToken)">
+            <summary>
+            Downloads specified media streams and processes them into a single file.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionExtensions.DownloadAsync(YoutubeExplode.Videos.VideoClient,YoutubeExplode.Videos.VideoId,YoutubeExplode.Converter.ConversionRequest,System.IProgress{System.Double},System.Threading.CancellationToken)">
+            <summary>
+            Selects best media streams for the specified video, downloads them, and processes into a single file.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionExtensions.DownloadAsync(YoutubeExplode.Videos.VideoClient,YoutubeExplode.Videos.VideoId,System.String,System.Action{YoutubeExplode.Converter.ConversionRequestBuilder},System.IProgress{System.Double},System.Threading.CancellationToken)">
+            <summary>
+            Selects best media streams for the specified video, downloads them, and processes into a single file.
+            Conversion format is derived from file extension, unless explicitly specified.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionExtensions.DownloadAsync(YoutubeExplode.Videos.VideoClient,YoutubeExplode.Videos.VideoId,System.String,System.IProgress{System.Double},System.Threading.CancellationToken)">
+            <summary>
+            Selects best media streams for the specified video, downloads them, and processes into a single file.
+            Conversion format is derived from file extension. If none is specified, mp4 is chosen as the default.
+            </summary>
+        </member>
+        <member name="T:YoutubeExplode.Converter.ConversionFormat">
+            <summary>
+            Encapsulates conversion media format.
+            </summary>
+        </member>
+        <member name="P:YoutubeExplode.Converter.ConversionFormat.Name">
+            <summary>
+            Format name.
+            </summary>
+        </member>
+        <member name="P:YoutubeExplode.Converter.ConversionFormat.IsAudioOnly">
+            <summary>
+            Whether this format is a known audio-only format.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionFormat.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:YoutubeExplode.Converter.ConversionFormat"/>.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionFormat.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:YoutubeExplode.Converter.ConversionPreset">
+            <summary>
+            Encoder preset.
+            </summary>
+        </member>
+        <member name="F:YoutubeExplode.Converter.ConversionPreset.VerySlow">
+            <summary>
+            Much slower conversion speed and smaller output file size.
+            </summary>
+        </member>
+        <member name="F:YoutubeExplode.Converter.ConversionPreset.Slow">
+            <summary>
+            Slightly slower conversion speed and smaller output file size.
+            </summary>
+        </member>
+        <member name="F:YoutubeExplode.Converter.ConversionPreset.Medium">
+            <summary>
+            Default preset.
+            Balanced conversion speed and output file size.
+            </summary>
+        </member>
+        <member name="F:YoutubeExplode.Converter.ConversionPreset.Fast">
+            <summary>
+            Slightly faster conversion speed and bigger output file size.
+            </summary>
+        </member>
+        <member name="F:YoutubeExplode.Converter.ConversionPreset.VeryFast">
+            <summary>
+            Much faster conversion speed and bigger output file size.
+            </summary>
+        </member>
+        <member name="F:YoutubeExplode.Converter.ConversionPreset.UltraFast">
+            <summary>
+            Fastest conversion speed and biggest output file size.
+            </summary>
+        </member>
+        <member name="T:YoutubeExplode.Converter.ConversionRequest">
+            <summary>
+            Conversion options.
+            </summary>
+        </member>
+        <member name="P:YoutubeExplode.Converter.ConversionRequest.FFmpegCliFilePath">
+            <summary>
+            Path to FFmpeg CLI.
+            </summary>
+        </member>
+        <member name="P:YoutubeExplode.Converter.ConversionRequest.OutputFilePath">
+            <summary>
+            Output file path.
+            </summary>
+        </member>
+        <member name="P:YoutubeExplode.Converter.ConversionRequest.Format">
+            <summary>
+            Output format.
+            </summary>
+        </member>
+        <member name="P:YoutubeExplode.Converter.ConversionRequest.Preset">
+            <summary>
+            Encoder preset.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequest.#ctor(System.String,System.String,YoutubeExplode.Converter.ConversionFormat,YoutubeExplode.Converter.ConversionPreset)">
+            <summary>
+            Initializes an instance of <see cref="T:YoutubeExplode.Converter.ConversionRequest"/>.
+            </summary>
+        </member>
+        <member name="T:YoutubeExplode.Converter.ConversionRequestBuilder">
+            <summary>
+            Builder for <see cref="T:YoutubeExplode.Converter.ConversionRequest"/>.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequestBuilder.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:YoutubeExplode.Converter.ConversionRequestBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequestBuilder.SetFFmpegPath(System.String)">
+            <summary>
+            Sets FFmpeg CLI path.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequestBuilder.SetFormat(YoutubeExplode.Converter.ConversionFormat)">
+            <summary>
+            Sets conversion format.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequestBuilder.SetFormat(System.String)">
+            <summary>
+            Sets conversion format.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequestBuilder.SetPreset(YoutubeExplode.Converter.ConversionPreset)">
+            <summary>
+            Sets conversion preset.
+            </summary>
+        </member>
+        <member name="M:YoutubeExplode.Converter.ConversionRequestBuilder.Build">
+            <summary>
+            Builds the resulting request.
+            </summary>
+        </member>
+    </members>
+</doc>

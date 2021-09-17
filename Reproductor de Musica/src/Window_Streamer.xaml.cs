@@ -36,7 +36,9 @@ namespace Reproductor_de_Musica.src
             ComboBox_Ruta.SelectedIndex = 0;
             if (File.Exists("PathFile.pytham"))
             {
-                ComboBox_Ruta.Items.Add(Utilities<string>.GetFile("PathFile"));
+                string data = Utilities<string>.GetFile("PathFile");
+                if(data != "")
+                    ComboBox_Ruta.Items.Add(data);
             }
             
         }
@@ -49,11 +51,12 @@ namespace Reproductor_de_Musica.src
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Utilities<string>.CreateFile("PathFile", Mainwindow.PathFile);
+            Mainwindow.winStreamer = null;
         }
 
         private void ButtonX_Click(object sender, RoutedEventArgs e)
         {
-            Mainwindow.winStreamer = null;
+            
             this.Close();
 
         }
@@ -85,23 +88,33 @@ namespace Reproductor_de_Musica.src
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Mainwindow.Streamer_Picture = (bool)Check_Image.IsChecked;
-            Mainwindow.PathFile = (string)ComboBox_Ruta.Items[ComboBox_Ruta.SelectedIndex];
-            if (ComboBox_Ruta.Text.Length == 0)
-                MessageBox.Show("¡No ha seleccionado una ruta para guardar los datos!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-            
-            if((bool)!Check_Image.IsChecked && (bool)!Check_Text.IsChecked)
-                MessageBox.Show("¡No ha seleccionado por lo menos una de las 2 opciones!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
 
+            if (ComboBox_Ruta.Text.Length == 0)
+            {
+                MessageBox.Show("¡No ha seleccionado una ruta para guardar los datos!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            else
+                Mainwindow.PathFile = (string)ComboBox_Ruta.Items[ComboBox_Ruta.SelectedIndex];
+
+            if ((bool)!Check_Image.IsChecked && (bool)!Check_Text.IsChecked)
+            {
+                MessageBox.Show("¡No ha seleccionado por lo menos una de las 2 opciones!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if ((bool)Check_Text.IsChecked)
             {
-                if((bool)!Check_NameSong.IsChecked && (bool)!Check_Album.IsChecked && (bool)!Check_Year.IsChecked && (bool)!Check_Author.IsChecked)
+                if ((bool)!Check_NameSong.IsChecked && (bool)!Check_Album.IsChecked && (bool)!Check_Year.IsChecked && (bool)!Check_Author.IsChecked)
+                {
                     MessageBox.Show("¡No ha seleccionado ninguna opción para mostrar el texto!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 else
                 {
                     if ((bool)Check_NameSong.IsChecked)
                         File.Create($@"{(string)ComboBox_Ruta.Items[ComboBox_Ruta.SelectedIndex]}\NameSong.txt");
-                    
-                    if((bool)Check_Album.IsChecked)
+
+                    if ((bool)Check_Album.IsChecked)
                         File.Create($@"{(string)ComboBox_Ruta.Items[ComboBox_Ruta.SelectedIndex]}\AlbumSong.txt");
 
                     if ((bool)Check_Year.IsChecked)
@@ -133,7 +146,7 @@ namespace Reproductor_de_Musica.src
                 if (result == WinForms.DialogResult.OK && !string.IsNullOrWhiteSpace(fd.SelectedPath))
                 {
                     ComboBox_Ruta.Items.Add(fd.SelectedPath);
-                    ComboBox_Ruta.SelectedIndex = 0;
+                    ComboBox_Ruta.SelectedIndex = ComboBox_Ruta.Items.Count - 1;
                 }
             }
         }

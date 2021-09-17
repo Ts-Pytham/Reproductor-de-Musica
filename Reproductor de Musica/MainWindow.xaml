@@ -8,14 +8,54 @@
         Closing="Window_Closing"
         Title="Reproductor de Musica" Height="720" Width="1280"  Background="#FF2F3136" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="icon.png">
 
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo x:Name="taskBarItemInfo" 
+                     
+                     ThumbnailClipMargin="80,0,80,140">
+            <TaskbarItemInfo.ThumbButtonInfos>
+                <ThumbButtonInfoCollection>
+                    <ThumbButtonInfo
+                    DismissWhenClicked="True"
+                    ImageSource="/IMG/Models_Anterior/anterior.png"
+                    Click="ThumbButtonInfo_Anterior"
+                    Description="Anterior"/>
+
+                    <ThumbButtonInfo
+                    DismissWhenClicked="True"
+                    ImageSource = "/IMG/boton-de-play.png"
+                    Click="ThumbButtonInfo_Pause"
+                    Description="Play"/>
+
+
+
+                    <ThumbButtonInfo
+                    DismissWhenClicked="True"
+                    ImageSource="/IMG/Models_Siguiente/siguiente.png"
+                    Click="ThumbButtonInfo_Siguiente"
+                    Description="Siguiente"/>
+
+                </ThumbButtonInfoCollection>
+            </TaskbarItemInfo.ThumbButtonInfos>
+        </TaskbarItemInfo>
+    </Window.TaskbarItemInfo>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="491*"/>
+            <ColumnDefinition Width="149*"/>
+        </Grid.ColumnDefinitions>
         <Border x:Name="Border1" BorderBrush="#FFfdf008" BorderThickness="1" HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="180"/>
-        <Border  x:Name="Border2" BorderBrush="#FFfdf008" BorderThickness="1" HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="1280"/>
-        <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="1280" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown">
-            <Button x:Name="Button_Minus" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="1130,0,0,0">
+        <Border x:Name="Border2" BorderBrush="#FFfdf008" BorderThickness="1" HorizontalAlignment="Left" Height="584" Margin="0,36,0,0" VerticalAlignment="Top" Width="1280" Grid.ColumnSpan="2"/>
+        <Border x:Name="Border3" BorderBrush="#FFfdf008" BorderThickness="1" HorizontalAlignment="Left" Height="32" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Grid.ColumnSpan="2"/>
+
+        <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="1280" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown" Grid.ColumnSpan="2">
+            <Button Width="75" Height="36" Margin="1059,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{DynamicResource ButtonMinimize}" Cursor="Hand" Click="Button_Notification_Click">
+                <Image Source="/IMG/Notifications/notificacion1.png"/>
+            </Button>
+            <Button x:Name="Button_Minus" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="1131,-36,12,0">
                 <Image Source="/IMG/minimizar.png" Height="26" Width="24"></Image>
             </Button>
-            <Button x:Name="Button_X" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonX_Click" Style="{DynamicResource ButtonClose}" >
+            <Button x:Name="Button_X" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonX_Click" Style="{DynamicResource ButtonClose}" Margin="-13,-36,0,0" >
                 <Image Source="/IMG/cerrar.png" Height="14" Width="11"></Image>
             </Button>
         </WrapPanel>
@@ -50,18 +90,29 @@
                 <Image x:Name="Image_Ajuste" Height="41" Width="26" Source="/IMG/ajuste2.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown" Cursor="Hand"/>
                 <TextBlock x:Name="TextBlock_Ajuste" TextWrapping="Wrap" Text="Ajustes" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold" MouseLeftButtonDown="TextBox_Ajuste_MouseLeftButtonDown"/>
             </WrapPanel>
+
             <WrapPanel Height="70" Margin="10,-4,0,0">
                 <Rectangle x:Name="Rectangle_Barra5" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
                 <Image x:Name="Image_Streamer" Height="41" Width="26" Source="live.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBox_Streamer_MouseLeftButtonDown" Cursor="Hand"/>
                 <TextBlock x:Name="TextBlock_Streamer" TextWrapping="Wrap" Text="Modo Streamer" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold" MouseLeftButtonDown="TextBox_Streamer_MouseLeftButtonDown"/>
             </WrapPanel>
 
+            <WrapPanel Height="70" Margin="10,-4,0,0">
+                <Rectangle x:Name="Rectangle_Barra6" Fill="#FFFE4164" Height="21" Stroke="Black" Width="6" Visibility="Hidden"/>
+                <Image x:Name="Image_Download" Height="41" Width="26" Source="DownloadIcon.png"  Margin="5,0,0,0" MouseLeftButtonDown="TextBlock_Download_MouseLeftButtonDown" Cursor="Hand"/>
+                <TextBlock x:Name="TextBlock_Download" TextWrapping="Wrap" Text="Descargar música" Foreground="#FFCFCFCF" VerticalAlignment="Center" Margin="9,0,0,0" FontFamily="Verdana" MouseLeave="TextBlock_Add_MouseLeave" MouseEnter="TextBlock_Add_MouseEnter" MouseLeftButtonUp="TextBlock_Add_MouseLeftButtonUp" FontWeight="Bold" MouseLeftButtonDown="TextBlock_Download_MouseLeftButtonDown"/>
+            </WrapPanel>
+
         </StackPanel>
 
-        <WrapPanel x:Name="WrapPanel_Secundaria" HorizontalAlignment="Left" Height="100" Margin="0,620,0,0" VerticalAlignment="Top" Width="1280" Background="#FF212121">
+        <WrapPanel x:Name="WrapPanel_Secundaria" HorizontalAlignment="Left" Height="100" Margin="0,620,0,0" VerticalAlignment="Top" Width="1280" Background="#FF212121" Grid.ColumnSpan="2">
             <TextBlock Text="" Foreground="White" FontFamily="Verdana" Padding="90,31,0,0" Width="200"/>
             <StackPanel Height="100" Width="574" Margin="150,0,0,0">
-                <Image Height="23" Source="/IMG/Aleatorio/barajar.png" Margin="202,17,340,6"/>
+                <Image x:Name="IMG_Aleatorio" Height="23" Source="/IMG/Aleatorio/barajar.png" Margin="202,17,340,6" MouseLeftButtonDown="Image_MouseLeftButtonDown_Aleatorio">
+                    <Image.ToolTip>
+                        <ToolTip>Aleatorio</ToolTip>
+                    </Image.ToolTip>
+                </Image>
 
                 <Image x:Name="Anterior" Height="23" Source="/IMG/Models_Anterior/anterior.png" Margin="245,-36,303,0" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp">
                     <Image.ToolTip>
@@ -94,42 +145,90 @@
             <Slider x:Name="Slider_Volumen" Width="218" Height="36" Style="{DynamicResource Horizontal_Slider}" Value="0.5" Maximum="1" Margin="115,0,0,24" ValueChanged="Slider_ValueChanged" MouseMove="Slider_MouseMove" IsMoveToPointEnabled="True"/>
 
         </WrapPanel>
-        <Canvas x:Name="Canvas_Music" Margin="120,650,959,27" ClipToBounds="True">
+        <Canvas x:Name="Canvas_Music" Margin="120,650,661,27" ClipToBounds="True">
             <TextBlock x:Name="Name_Music" Foreground="White" FontFamily="Verdana" Text="-"/>
         </Canvas>
         <TextBlock x:Name="TextBlock_Author_Name" HorizontalAlignment="Left" Margin="120,670,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" Width="200"/>
 
-        <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,478,10" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp" ValueChanged="Slider_Carga_ValueChanged"  IsMoveToPointEnabled="True"/>
+        <Slider x:Name="Slider_Carga" Height="36" Margin="500,674,180,10" Style="{DynamicResource Horizontal_Slider}" Value="0" Maximum="100" Background="AliceBlue" MouseLeftButtonUp="Slider_Carga_MouseLeftButtonUp" ValueChanged="Slider_Carga_ValueChanged"  IsMoveToPointEnabled="True"/>
         <TextBlock x:Name="Text_MinLength" HorizontalAlignment="Left" Margin="456,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
         <TextBlock x:Name="Text_MaxLength" HorizontalAlignment="Left" Margin="822,679,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana" />
-        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="495" Margin="240,75,0,0" VerticalAlignment="Top" Width="932" Background="Transparent" Foreground="White" FontFamily="Verdana" SelectionChanged="ListBox_SelectionChanged" AllowDrop="True" Drop="ListBox_Drop" MouseLeftButtonDown="ListBox_MouseLeftButtonDown"  PreviewMouseDoubleClick="ListBox_PreviewMouseDoubleClick">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True" >
 
-                            <Setter Property="Foreground" Value="#FFFE4164" />
-                        </Trigger>
-
-                        <Trigger Property="IsSelected" Value="False" >
-
-                            <Setter Property="Foreground" Value="White" />
-                        </Trigger>
-                    </Style.Triggers>
+        <DataGrid x:Name="DataGridP" HorizontalAlignment="Left" Height="489" Margin="240,75,0,0" VerticalAlignment="Top" Width="932"
+                  ItemsSource="{Binding}" AutoGenerateColumns="False" LoadingRow="DataGrid_LoadingRow" IsReadOnly="True"
+                  MouseDoubleClick="DataGridP_MouseDoubleClick" CanUserSortColumns = "False" GridLinesVisibility="None"
+                  RowBackground="Transparent" Background="Transparent" FontFamily="Verdana" FontSize="16" Foreground="White"
+                  PreviewMouseLeftButtonDown="DataGridP_MouseLeftButtonDown" AreRowDetailsFrozen="True" FrozenColumnCount="5"
+                  PreviewKeyDown="DataGridP_PreviewKeyDown" Cursor="Hand" Drop="ListBox_Drop" AllowDrop="True" Grid.ColumnSpan="2"
+                  BorderBrush="#FFfdf008">
+            <DataGrid.RowHeaderStyle>
+                <Style>
+                    <Setter Property="Control.Background" Value="Transparent"/>
+                    <Setter Property="Control.Width" Value="40"/>
+                </Style>
+            </DataGrid.RowHeaderStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style>
+                    <Setter Property="Control.Background" Value="#FF151515"/>
+                    <Setter Property="Control.Height" Value="30"/>
 
                 </Style>
-            </ListBox.ItemContainerStyle>
+            </DataGrid.ColumnHeaderStyle>
 
-        </ListBox>
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" Width="300"/>
+                <DataGridTextColumn Header="Artista" Binding="{Binding Author}" Width="230"/>
+                <DataGridTextColumn Header="Álbum" Binding="{Binding Album}" Width="250"/>
+                <DataGridTextColumn Header="Duración" Binding="{Binding Duration}" Width="150"/>
+
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#7F46ABFF"/>
+
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" 
+                   Color="White"/>
+
+
+                <Style x:Key="SThumb" TargetType="{x:Type Thumb}">
+                    <Setter Property="OverridesDefaultStyle" Value="true"/>
+                    <Setter Property="IsTabStop" Value="False"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                <Rectangle Width="8" Fill="#4CFFFFFF" RadiusX="4" RadiusY="4">
+                                </Rectangle>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="ScrollBar">
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}">
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource SThumb}"/>
+                                    </Track.Thumb>
+                                </Track>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
         <Image x:Name="IMG_Favorite" HorizontalAlignment="Left" Height="24" Margin="517,638,0,0" VerticalAlignment="Top" Width="22" Source="/IMG/Favorite/favorite.png" MouseLeftButtonDown="Image_Favorite_MouseLeftButtonDown">
             <Image.ToolTip>
                 <ToolTip>Agregar a favoritos</ToolTip>
             </Image.ToolTip>
         </Image>
         <TextBlock x:Name="TextBlock_Info_PlayList" HorizontalAlignment="Left" Margin="240,588,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Verdana"/>
-        <Button x:Name="Button_Erase" Content="Erase" HorizontalAlignment="Left" Margin="1120,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click"/>
+        <Button x:Name="Button_Erase" Content="Erase" HorizontalAlignment="Left" Margin="138,569,0,0" VerticalAlignment="Top" Width="52" Height="24" Background="Transparent" Foreground="White" BorderBrush="#FFABADB3" Click="Button_Delete_All_Click" Grid.Column="1"/>
         <Image x:Name="Image_Song"  HorizontalAlignment="Left" Height="80" Margin="36,630,0,0" VerticalAlignment="Top" Width="74" Stretch="UniformToFill" />
-
 
     </Grid>
 </Window>

@@ -24,7 +24,6 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Reproductor de Musica.exe.manifest
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Reproductor de Musica.application
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.application
-C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\taglib-sharp.dll
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.CopyComplete
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WinAjuste.g.cs
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WinAjuste.baml
@@ -33,3 +32,119 @@ C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\src\Window_Streamer.g.cs
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\src\Window_Streamer.baml
 C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Drawing.Common.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\DiscordRPC.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\DiscordRPC.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\DiscordRPC.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\AngleSharp.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Buffers.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Memory.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Text.Json.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.ValueTuple.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\YoutubeExplode.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\AngleSharp.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Memory.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Text.Json.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\YoutubeExplode.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WindowDownload.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\WindowDownload.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\TagLibSharp.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\TagLibSharp.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\TagLibSharp.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\CliWrap.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\YoutubeExplode.Converter.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\CliWrap.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\YoutubeExplode.Converter.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica_Content.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\obj\Debug\Reproductor de Musica.exe.config
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Ookii.Dialogs.Wpf.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica\Reproductor de Musica\bin\Debug\Ookii.Dialogs.Wpf.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Reproductor de Musica.exe.config
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Reproductor de Musica.exe.manifest
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Reproductor de Musica.application
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Reproductor de Musica.exe
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Reproductor de Musica.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Ookii.Dialogs.Wpf.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Ookii.Dialogs.Wpf.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.ValueTuple.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\AngleSharp.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\CliWrap.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\DiscordRPC.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Buffers.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Drawing.Common.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Memory.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Text.Json.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\TagLibSharp.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\YoutubeExplode.Converter.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\YoutubeExplode.dll
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\AngleSharp.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\CliWrap.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\DiscordRPC.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\DiscordRPC.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Memory.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Text.Json.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\TagLibSharp.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\TagLibSharp.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\YoutubeExplode.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\bin\Debug\YoutubeExplode.Converter.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.exe.config
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\ButtonStyles.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\Slider.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\Slider2.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\ColorsRGB.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\src\Window_Streamer.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\MainWindow.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\WinAjuste.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\WindowDownload.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\App.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica_Content.g.cs
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica_MarkupCompile.cache
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica_MarkupCompile.lref
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\App.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\ColorsRGB.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\src\Window_Streamer.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\MainWindow.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\ButtonClose.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\ListBox.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\Minimize.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Styles\ProgressBar.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\WinAjuste.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\WindowDownload.baml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.g.resources
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.CoreCompileInputs.cache
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.TrustInfo.xml
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.exe.manifest
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.application
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.CopyComplete
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.exe
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.pdb
+C:\Users\Johan Sánchez\source\repos\Reproductor de Musica Mejora\Reproductor de Musica\obj\Debug\Reproductor de Musica.csproj.AssemblyReference.cache

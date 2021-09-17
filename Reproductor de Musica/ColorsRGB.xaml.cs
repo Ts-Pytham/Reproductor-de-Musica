@@ -128,17 +128,9 @@ namespace Reproductor_de_Musica
                         Window.Mainwindow.LTheme[6] = Window.Rectangle5.Fill.ToString();
                         
                         Window.Mainwindow.Button_Erase.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
-                        int len = Window.Mainwindow.ListBox.Items.Count;
-                        for(int i = 0; i != len; ++i)
-                        {
-                            if (i != Window.Mainwindow.IsSelected)
-                            {
-                                
-                                TextBlock data = (TextBlock)Window.Mainwindow.ListBox.Items[i];
-                                data.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
-                            }
-                        }
 
+                        Window.Mainwindow.DataGridP.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
+          
                         Window.Mainwindow.TextBlock_Add.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
                         Window.Mainwindow.TextBlock_Favorite.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
                         Window.Mainwindow.TextBlock_PlayList.Foreground = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
@@ -151,12 +143,12 @@ namespace Reproductor_de_Musica
                     }
                     else if (rect.Name == "Rectangle6")
                     {
-                        Window.Mainwindow.Border1.BorderBrush = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
-                        Window.Mainwindow.Border2.BorderBrush = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
+                        Window.Mainwindow.Border1.BorderBrush = Window.Mainwindow.Border2.BorderBrush = Window.Mainwindow.Border3.BorderBrush = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
+
                     }
                     else if (rect.Name == "Rectangle7") 
                     {
-                        Window.Mainwindow.ListBox.BorderBrush = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
+                        Window.Mainwindow.DataGridP.BorderBrush = new SolidColorBrush(Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value));
                     }
 
                 }

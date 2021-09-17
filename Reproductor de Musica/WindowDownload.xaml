@@ -1,0 +1,33 @@
+﻿<Window x:Class="Reproductor_de_Musica.WindowDownload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reproductor_de_Musica"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="Descargar música" Height="600" Width="900" Background="#FF2F3136" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="icon.png">
+    <Grid>
+        <WrapPanel x:Name="WrapPanel_Principal" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="900" Background="Black" MouseLeftButtonDown="WrapPanel_MouseLeftButtonDown">
+            <Button x:Name="Button_Minus" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonMinimize_Click" Height="36" Style="{DynamicResource ButtonMinimize}" Margin="750,0,0,0" VerticalAlignment="Center">
+                <Image Source="/IMG/minimizar.png" Height="26" Width="24"></Image>
+            </Button>
+            <Button x:Name="Button_X" Width="75" Background="Black" BorderBrush="Black" Foreground="White" Click="ButtonX_Click" Style="{DynamicResource ButtonClose}" >
+                <Image Source="/IMG/cerrar.png" Height="14" Width="11"></Image>
+            </Button>
+        </WrapPanel>
+        <Border x:Name="Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="564" Margin="0,36,0,0" VerticalAlignment="Top" Width="900"/>
+        <TextBox x:Name="TB_Bind" HorizontalAlignment="Left" Height="41" Margin="222,76,0,0" Text="" VerticalAlignment="Top" Width="474" Background="{x:Null}" FontFamily="Verdana" Foreground="White" FontSize="16" VerticalContentAlignment="Center"/>
+
+        <Border x:Name="Border2" BorderBrush="White" BorderThickness="1" Width="784" Margin="58,152,58,45" />
+        <StackPanel x:Name="StackPanel_Main" HorizontalAlignment="Left" Height="403" Margin="58,152,0,0" VerticalAlignment="Top" Width="784">
+
+        </StackPanel>
+
+        <Button x:Name="Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="742,76,0,0" VerticalAlignment="Top" Width="74" Height="41" Click="DownloadMusic" Background="{Binding Path=Background}" FontFamily="Verdana" FontSize="14" Cursor="Hand"/>
+
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="27" Margin="222,563,0,0" VerticalAlignment="Top" Width="474"/>
+        <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0}%}" Margin="222,563,204,10" FontSize="14" HorizontalAlignment="Center"/>
+
+    </Grid>
+</Window>

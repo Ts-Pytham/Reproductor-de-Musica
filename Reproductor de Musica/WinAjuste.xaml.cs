@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IO = System.IO;
 using Reproductor_de_Musica.Utilidades;
+using System.Windows.Controls.Primitives;
 
 namespace Reproductor_de_Musica
 {
@@ -25,7 +21,7 @@ namespace Reproductor_de_Musica
     public partial class WinAjuste : Window
     {
 
-        private readonly string version = "3.2";
+        private readonly string version = "4.0";
         public ColorsRGB colors;
 
 
@@ -41,18 +37,27 @@ namespace Reproductor_de_Musica
             this.Mainwindow = Mainwindow;
             InitializeComponent();
 
-            if (Mainwindow.theme == 0)
-                RB_Modo_Oscuro.IsChecked = true;
-            else if (Mainwindow.theme == 1)
-                RB_Modo_Claro.IsChecked = true;
-            else if (Mainwindow.theme == 2)
-                RB_Modo_Opera.IsChecked = true;
-            else if (Mainwindow.theme == 3)
-                RB_Modo_Amazul.IsChecked = true;
-            else if (Mainwindow.theme == 4)
-                RB_Modo_Quartz.IsChecked = true;
-            else if (Mainwindow.theme == 5)
-                RB_Modo_P.IsChecked = true;
+            switch (Mainwindow.theme)
+            {
+                case 0:
+                    RB_Modo_Oscuro.IsChecked = true;
+                    break;
+                case 1:
+                    RB_Modo_Claro.IsChecked = true;
+                    break;
+                case 2:
+                    RB_Modo_Opera.IsChecked = true;
+                    break;
+                case 3:
+                    RB_Modo_Amazul.IsChecked = true;
+                    break;
+                case 4:
+                    RB_Modo_Quartz.IsChecked = true;
+                    break;
+                case 5:
+                    RB_Modo_P.IsChecked = true;
+                    break;
+            }
 
             // Comprobamos si el usuario tiene una plantilla personalizada
 
@@ -88,7 +93,7 @@ namespace Reproductor_de_Musica
                     "5"
                 };
 
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
             }
             Mainwindow.win = null;
             if(colors != null)
@@ -149,7 +154,7 @@ namespace Reproductor_de_Musica
             {
                 Mainwindow.theme = 1;
                
-                Change_Theme("#FF72C8F1", "#FFFFFFFF", "#FFdedede", "#FF318d99", Brushes.Black, "#FFFFFFFF", "#FF000000", "#FF000000");
+                Change_Theme("#FF72C8F1", "#FFFFFFFF", "#FFdedede", "#FF318d99", Brushes.Black, "#FF000000", "#FF000000", "#FF000000");
                
                 List<string> list = new List<string>
                 {
@@ -158,12 +163,12 @@ namespace Reproductor_de_Musica
                     "#FFdedede",
                     "#FF318d99",
                     "#FF000000",
-                    "#FFFFFFFF",
+                    "#FF000000",
                     "#FF000000",
                     "#FF000000",
                     "1"
                 };
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
                 Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
@@ -171,8 +176,9 @@ namespace Reproductor_de_Musica
             {
                 Mainwindow.theme = 0;
                 
-                Change_Theme("#FF000000", "#FF2F3136", "#FF151515", "#FF212121", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFFFFFFF");
-                
+                Change_Theme("#FF000000", "#FF2F3136", "#FF151515", "#FF212121", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFfdf008");
+
+
                 List<string> list = new List<string>
                 {
                     "#FF000000",
@@ -182,10 +188,10 @@ namespace Reproductor_de_Musica
                     "#FFFFFFFF",
                     "#FFfdf008",
                     "#FFCFCFCF",
-                    "#FFFFFFFF",
+                    "#FFfdf008",
                     "0"
                 };
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
                 Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
@@ -206,14 +212,14 @@ namespace Reproductor_de_Musica
                     "#FFde1927",
                     "2"
                 };
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
                 Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_Amazul" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 3;
-           
+
                 Change_Theme("#FF002420", "#FF002429", "#FF00363d", "#FF002729", Brushes.White, "#FFfdf008", "#FFCFCFCF", "#FFfdf008");
                 
                 List<string> list = new List<string>
@@ -228,18 +234,18 @@ namespace Reproductor_de_Musica
                     "#FFfdf008",
                     "3"
                 };
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
                 Mainwindow.LTheme = list;
                 RB.IsChecked = true;
             }
-            
+
             else if (RB.Name == "RB_Modo_Quartz" && (bool)!RB.IsChecked)
             {
                 Mainwindow.theme = 4;
-                
+
                 Change_Theme("#FF1d0c13", "#FF1d0c13", "#FF2b121c", "#FF351622", Brushes.White, "#FFf2688d", "#FFCFCFCF", "#FFf2688d");
 
-       
+
                 List<string> list = new List<string>
                 {
                     "#FF1d0c13",
@@ -253,7 +259,7 @@ namespace Reproductor_de_Musica
                     "4"
                 };
                 Mainwindow.LTheme = list;
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
                 RB.IsChecked = true;
             }
             else if (RB.Name == "RB_Modo_P" && (bool)!RB.IsChecked)
@@ -273,41 +279,50 @@ namespace Reproductor_de_Musica
                     Rectangle7.Fill.ToString(),
                     "5"
                 };
-                Utilidades.Utilities<List<string>>.SaveData("theme", list);
+                Utilities<List<string>>.SaveData("theme", list);
                 RB.IsChecked = true;
             }
         }
         private void Change_Theme(string color1, string color2, string color3, string color4, Brush color5, string color7, string color6, string color8)
         {
             Mainwindow.Background = (Brush)new BrushConverter().ConvertFrom(color2);
-            Mainwindow.ListBox.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color8);
+            Mainwindow.DataGridP.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color8);
 
-            //int len = Mainwindow.ListBox.Items.Count;
-            //for(int i = 0; i != len; ++i)
-                //((ListBoxItem)Mainwindow.ListBox.ItemContainerGenerator.ContainerFromIndex(i)).Foreground = color5;
 
             Mainwindow.Button_Erase.Foreground = color5;
             Mainwindow.Button_Erase.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color8);
 
-            Mainwindow.Border1.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color7);
-            Mainwindow.Border2.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color7);
+            Mainwindow.Border1.BorderBrush = Mainwindow.Border2.BorderBrush = Mainwindow.Border3.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color7);
+            //MessageBox.Show(Mainwindow.DataGridP.ColumnHeaderStyle.Resources[Control.ForegroundProperty].ToString());
 
-            int len = Mainwindow.ListBox.Items.Count;
-            for (int i = 0; i != len; ++i)
+            Style style = new Style(typeof(DataGridColumnHeader));
+            style.Setters.Add(new Setter { Property = BackgroundProperty, Value = (Brush)new BrushConverter().ConvertFrom(color1) });
+            style.Setters.Add(new Setter { Property = HeightProperty, Value = 30d });
+            style.Seal();
+            Mainwindow.DataGridP.ColumnHeaderStyle = style;
+
+            Style style2 = new Style(typeof(DataGridCell));
+
+
+            if (Mainwindow.theme == 1)
             {
-                if (i != Mainwindow.IsSelected)
-                {
-
-                    TextBlock data = (TextBlock)Mainwindow.ListBox.Items[i];
-                    if(Mainwindow.theme == 1)
-                        data.Foreground = Brushes.Black;
-                    else if (Mainwindow.theme != 5)
-                        data.Foreground = Brushes.White;
-                    else
-                        data.Foreground = color5;
-                }
+                Mainwindow.DataGridP.Foreground = Brushes.Black;
+                style2.Setters.Add(new Setter { Property = ForegroundProperty, Value = Brushes.Black });
             }
- 
+            else if (Mainwindow.theme != 5)
+            {
+                Mainwindow.DataGridP.Foreground = Brushes.White;
+                style2.Setters.Add(new Setter { Property = ForegroundProperty, Value = Brushes.White });
+            }
+            else
+            {
+                Mainwindow.DataGridP.Foreground = color5;
+                style2.Setters.Add(new Setter { Property = ForegroundProperty, Value = Brushes.White });
+            }
+            style2.Seal();
+            Mainwindow.DataGridP.CellStyle = style2;
+
+
             Mainwindow.WrapPanel_Principal.Background = (Brush)new BrushConverter().ConvertFrom(color1);
             Mainwindow.Button_X.Background = (Brush)new BrushConverter().ConvertFrom(color1);
             Mainwindow.Button_X.BorderBrush = (Brush)new BrushConverter().ConvertFrom(color1);
